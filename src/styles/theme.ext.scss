@@ -1,0 +1,15 @@
+@import "./variables";
+@import "~@alchemist-editor/core/src/styles/helpers";
+
+#project-tree
+{
+  .tree-text
+  {
+    &[node-type="ecsrx-component"] span { @include auto-gradient($component-node-color); }
+    &[node-type="ecsrx-convention-system"] span { @include auto-gradient($conventional-system-node-color); }
+    &[node-type="ecsrx-event"] span { @include auto-gradient($event-node-color); }
+    &[node-type="ecsrx-group"] span { @include auto-gradient($group-node-color); }
+    &[node-type="ecsrx-manual-system"] span { @include auto-gradient($manual-system-node-color); }
+    &[node-type="ecsrx-model"] span { @include auto-gradient($model-node-color); }
+  }
+}
