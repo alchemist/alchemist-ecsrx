@@ -40,7 +40,7 @@
     @Component({
         components: {TypePicker}
     })
-    export class SystemsSectionComponent extends Vue
+    export default class extends Vue
     {
         @Prop()
         public implementations: Array<TypeData>;

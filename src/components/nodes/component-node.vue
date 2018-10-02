@@ -31,7 +31,7 @@
         },
         mixins: [ ValidateNode(ComponentNode) ]
     })
-    export class ComponentNodeComponent extends Vue
+    export default class extends Vue
     {
         @Prop()
         public node: ComponentNode;

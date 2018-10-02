@@ -39,7 +39,7 @@
         },
         mixins: [ ValidateNode(ManualSystemNode) ]
     })
-    export class ManualSystemNodeComponent extends Vue
+    export default class extends Vue
     {
         @Prop()
         public node: ManualSystemNode;
