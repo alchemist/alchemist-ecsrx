@@ -24,12 +24,12 @@
     import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist-editor/core";
     import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection, } from "@alchemist-editor/dotnet";
 
-    import {ReactivePropertiesSectionComponent as ReactivePropertiesSection} from "../reactive-properties-section.vue";
-    import {GroupSectionComponent as GroupSection} from "../group-section.vue";
+    import {default as ReactivePropertiesSection} from "../reactive-properties-section.vue";
+    import {default as GroupSection} from "../group-section.vue";
     import {unityCommonTypeList, unityGameTypeList} from "../../types/unity-common-types";
     import {ecsrxInterfaceTypeList} from "../../types/ecsrx-types";
     import {ConventionSystemNode} from "../../models/nodes/convention-system-node";
-    import {SystemsSectionComponent as SystemsSection} from "../systems-section.vue";
+    import {default as SystemsSection} from "../systems-section.vue";
 
     @Component({
         components: {

@@ -20,7 +20,7 @@
 
     import {NodeContainerComponent as NodeContainer, createNodeRuleset, ValidateNode} from "@alchemist-editor/core";
     import {ITypesToShow, commonTypeList} from "@alchemist-editor/dotnet";
-    import {ReactivePropertiesSectionComponent as ReactivePropertiesSection} from "../reactive-properties-section.vue";
+    import {default as ReactivePropertiesSection} from "../reactive-properties-section.vue";
     import {unityCommonTypeList} from "../../types/unity-common-types";
     import {ecsrxInterfaceTypeList} from "../../types/ecsrx-types";
 
