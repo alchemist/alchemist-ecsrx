@@ -21,7 +21,7 @@
     import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist-editor/core";
     import {ITypesToShow, ITypeData, commonTypeList, createNodeRuleset} from "@alchemist-editor/dotnet";
 
-    import {ComponentsSectionComponent as ComponentsSection} from "../components-section.vue";
+    import {default as ComponentsSection} from "../components-section.vue";
     import {GroupNode} from "../../models/nodes/group-node";
 
     @Component({

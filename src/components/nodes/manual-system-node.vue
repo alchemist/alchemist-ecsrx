@@ -22,8 +22,8 @@
     import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist-editor/core";
     import {ITypesToShow, ITypeData, commonTypeList, createNodeRuleset, PropertiesSectionComponent as PropertiesSection} from "@alchemist-editor/dotnet";
 
-    import {ReactivePropertiesSectionComponent as ReactivePropertiesSection} from "../reactive-properties-section.vue";
-    import {GroupSectionComponent as GroupSection} from "../group-section.vue";
+    import {default as ReactivePropertiesSection} from "../reactive-properties-section.vue";
+    import {default as GroupSection} from "../group-section.vue";
     import {unityCommonTypeList, unityGameTypeList} from "../../types/unity-common-types";
     import {ecsrxInterfaceTypeList} from "../../types/ecsrx-types";
 
@@ -39,7 +39,7 @@
         },
         mixins: [ ValidateNode(ManualSystemNode) ]
     })
-    export class ManualSystemNodeComponent extends Vue
+    export default class extends Vue
     {
         @Prop()
         public node: ManualSystemNode;

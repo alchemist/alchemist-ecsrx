@@ -23,7 +23,7 @@
     import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist-editor/core";
     import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection, createNodeRuleset} from "@alchemist-editor/dotnet";
 
-    import {ReactivePropertiesSectionComponent as ReactivePropertiesSection} from "../reactive-properties-section.vue";
+    import {default as ReactivePropertiesSection} from "../reactive-properties-section.vue";
     import {unityCommonTypeList} from "../../types/unity-common-types";
     import {ecsrxInterfaceTypeList} from "../../types/ecsrx-types";
 
@@ -36,7 +36,7 @@
         },
         mixins: [ ValidateNode(ModelNode) ]
     })
-    export class ModelNodeComponent extends Vue
+    export default class extends Vue
     {
         @Prop()
         public node: ModelNode;

@@ -1,6 +1,6 @@
 import {
-    ComponentNodeComponent, ModelNodeComponent, GroupNodeComponent
-    EventNodeComponent, ManualSystemComponent, ConventionSystemComponent
+    ComponentNodeComponent, ModelNodeComponent, GroupNodeComponent,
+    EventNodeComponent, ManualSystemNodeComponent, ConventionSystemNodeComponent
 } from "./component.exports"
 
 import {ComponentGenerator} from "./generators/component.generator";
@@ -23,7 +23,7 @@ import {ConventionSystemNode} from "@/models/nodes/convention-system-node";
 import {ConventionSystemCoreGenerator} from "@/generators/convention-system.core.generator";
 import {ConventionSystemExtendGenerator} from "@/generators/convention-system.extend.generator";
 
-import "./styles/theme.ext.scss";
+import "@/styles/theme.ext.scss";
 
 export function setup(nodeRegistry: NodeRegistry, generatorRegistry: NodeGeneratorRegistry, stores: any): Promise<any> {
     generatorRegistry.addGenerator(new ComponentGenerator());
@@ -43,8 +43,8 @@ export function setup(nodeRegistry: NodeRegistry, generatorRegistry: NodeGenerat
     nodeRegistry.addNode(new NodeEntry(ModelNode.NodeType.id, ModelNodeComponent, ecsRxFactory, ecsRxCategory, "Model"));
     nodeRegistry.addNode(new NodeEntry(GroupNode.NodeType.id, GroupNodeComponent, ecsRxFactory, ecsRxCategory, "Group"));
     nodeRegistry.addNode(new NodeEntry(EventNode.NodeType.id, EventNodeComponent, ecsRxFactory, ecsRxCategory, "Event"));
-    nodeRegistry.addNode(new NodeEntry(ManualSystemNode.NodeType.id, ManualSystemComponent, ecsRxFactory, ecsRxSystemsCategory, "Manual System"));
-    nodeRegistry.addNode(new NodeEntry(ConventionSystemNode.NodeType.id, ConventionSystemComponent, ecsRxFactory, ecsRxSystemsCategory, "Convention System"));
+    nodeRegistry.addNode(new NodeEntry(ManualSystemNode.NodeType.id, ManualSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Manual System"));
+    nodeRegistry.addNode(new NodeEntry(ConventionSystemNode.NodeType.id, ConventionSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Convention System"));
 
     const ecsrxModule = {
         getters: new EcsRxGetters()

@@ -31,7 +31,7 @@
     @Component({
         components: {TypePicker}
     })
-    export class GroupSectionComponent extends Vue
+    export default class extends Vue
     {
         @Prop()
         public group: ITypeData;

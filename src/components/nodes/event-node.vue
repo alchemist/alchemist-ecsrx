@@ -32,7 +32,7 @@
         },
         mixins: [ ValidateNode(EventNode) ]
     })
-    export class EventNodeComponent extends Vue
+    export default class extends Vue
     {
         @Prop()
         public node: EventNode;
