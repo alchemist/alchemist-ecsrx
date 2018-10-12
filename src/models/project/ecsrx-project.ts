@@ -1,12 +1,11 @@
-import {IProject} from "@alchemist-editor/core";
+import {Project} from "@alchemist-editor/core";
 import {NamespaceNodeGroup} from "@alchemist-editor/dotnet";
+import {EcsrxProjectDetails} from "./ecsrx-project-details";
 
-export class EcsRxProject implements IProject
+export class EcsRxProject extends Project
 {
-    public projectType = "ecsrx-project";
-    public version = "0.0.1";
 
-    public nodeGroups: Array<NamespaceNodeGroup> = [];
-
-    public constructor(public projectName = "", public outputDirectory = ""){}
+    constructor() {
+        super();
+    }
 }

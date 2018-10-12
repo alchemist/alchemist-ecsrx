@@ -8,7 +8,7 @@ import {ModelGenerator} from "./generators/model.generator";
 import {GroupGenerator} from "@/generators/group.generator";
 import {EventGenerator} from "@/generators/event.generator";
 
-import {NodeEntry, NodeRegistry, NodeGeneratorRegistry} from "@alchemist-editor/core";
+import {NodeEntry, NodeRegistry, ProjectEntry, ProjectRegistry, NodeGeneratorRegistry} from "@alchemist-editor/core";
 
 import {ComponentNode} from "./models/nodes/component-node";
 import {ModelNode} from "./models/nodes/model-node";
@@ -23,9 +23,14 @@ import {ConventionSystemNode} from "@/models/nodes/convention-system-node";
 import {ConventionSystemCoreGenerator} from "@/generators/convention-system.core.generator";
 import {ConventionSystemExtendGenerator} from "@/generators/convention-system.extend.generator";
 
+import {EcsRxProject} from "./models/project/ecsrx-project";
+import {EcsrxProjectDetails} from "./models/project/ecsrx-project-details";
+import {EcsrxProjectFactory} from "./factory/ecsrx-project-factory";
+import {EcsRxProjectDescriptor} from "./models/project/ecsrx-project-descriptor";
+
 import "@/styles/theme.ext.scss";
 
-export function setup(nodeRegistry: NodeRegistry, generatorRegistry: NodeGeneratorRegistry, stores: any): Promise<any> {
+export function setup(nodeRegistry: NodeRegistry, generatorRegistry: NodeGeneratorRegistry, projectRegistry: ProjectRegistry, stores: any): Promise<any> {
     generatorRegistry.addGenerator(new ComponentGenerator());
     generatorRegistry.addGenerator(new ModelGenerator());
     generatorRegistry.addGenerator(new GroupGenerator());
@@ -46,9 +51,12 @@ export function setup(nodeRegistry: NodeRegistry, generatorRegistry: NodeGenerat
     nodeRegistry.addNode(new NodeEntry(ManualSystemNode.NodeType.id, ManualSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Manual System"));
     nodeRegistry.addNode(new NodeEntry(ConventionSystemNode.NodeType.id, ConventionSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Convention System"));
 
+    projectRegistry.addProject(new ProjectEntry(new EcsRxProjectDescriptor(), new EcsrxProjectFactory()));
+
     const ecsrxModule = {
         getters: new EcsRxGetters()
     };
+
     stores.registerModule("ecsrx", ecsrxModule);
 
     console.log("Loaded Plugin: EcsRx");
