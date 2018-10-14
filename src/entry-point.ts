@@ -5,8 +5,8 @@ import {
 
 import {ComponentGenerator} from "./generators/component.generator";
 import {ModelGenerator} from "./generators/model.generator";
-import {GroupGenerator} from "@/generators/group.generator";
-import {EventGenerator} from "@/generators/event.generator";
+import {GroupGenerator} from "./generators/group.generator";
+import {EventGenerator} from "./generators/event.generator";
 
 import {NodeEntry, NodeRegistry, ProjectEntry, ProjectRegistry, NodeGeneratorRegistry} from "@alchemist-editor/core";
 
@@ -14,9 +14,9 @@ import {ComponentNode} from "./models/nodes/component-node";
 import {ModelNode} from "./models/nodes/model-node";
 import {GroupNode} from "./models/nodes/group-node";
 import {EcsRxGetters} from "@/stores/modules/ecsrx-getters";
-import {EventNode} from "@/models/nodes/event-node";
-import {ManualSystemNode} from "@/models/nodes/manual-system-node";
-import {ManualSystemCoreGenerator} from "@/generators/manual-system.core.generator";
+import {EventNode} from "./models/nodes/event-node";
+import {ManualSystemNode} from "./models/nodes/manual-system-node";
+import {ManualSystemCoreGenerator} from "./generators/manual-system.core.generator";
 import {ManualSystemExtendGenerator} from "@/generators/manual-system.extend.generator";
 import {EcsrxNodeFactory} from "@/factory/ecsrx-node-factory";
 import {ConventionSystemNode} from "@/models/nodes/convention-system-node";

@@ -37,6 +37,6 @@ const examplesNamespace = new NamespaceNodeGroup(false, "Root", new WorkspaceCon
     new ConventionSystemNode(new ConventionSystemData("SomeConventionSystem"), new Point(5500,5500))
 ]);
 
-export const exampleProject = new EcsRxProject("Example Project");
+export const exampleProject = new EcsRxProject("Example Project", );
 exampleProject.nodeGroups.push(examplesNamespace);
 exampleProject.nodeGroups.push(new NamespaceNodeGroup(true, "AnotherExample"));

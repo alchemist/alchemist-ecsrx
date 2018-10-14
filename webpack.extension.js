@@ -1,18 +1,33 @@
-const path = require("path");
+const configureTsLoader = chain => {
+    chain.module.rules.delete("ts");
+    chain.module.rules.delete("tsx");
 
-module.exports = config => {
+    chain.module
+        .rule('ts')
+        .test(/\.tsx?$/)
+        .use("ts-loader")
+        .loader("ts-loader")
+        .options({
+            appendTsSuffixTo: ['\\.vue$']
+        });
+};
 
+const configureExternals = config => {
     if(!config.externals)
     { config.externals = {}; }
-/*
+
+    config.externals["@alchemist-editor/core"] = "@alchemist-editor/core";
+    config.externals["@alchemist-editor/dotnet"] = "@alchemist-editor/dotnet";
     config.externals["@treacherous/core"] = "@treacherous/core";
     config.externals["@treacherous/vue"] = "@treacherous/vue";
-    config.externals["@treacherous/decorators"] = "@treacherous/decorators";*/
-/*
-    const scssConfig = {
-        test: /ext\.scss$/, use:
-            ["style-loader", "css-loader", "sass-loader"]
-    };
+    config.externals["@treacherous/decorators"] = "@treacherous/decorators";
+    config.externals["uuid"] = "uuid";
+    config.externals["tslib"] = "tslib";
+    config.externals["vue-class-component"] = "vue-class-component";
+    config.externals["vue-property-decorator"] = "vue-property-decorator";
+    config.externals["vuex"] = "vuex";
+    config.externals["vuex-class"] = "vuex-class";
 
-    config.module.rules.push(scssConfig);*/
 };
+
+module.exports = { configureTsLoader, configureExternals };
