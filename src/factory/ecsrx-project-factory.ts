@@ -3,8 +3,8 @@ import {createExampleProject} from "../examples/example-project";
 
 export class EcsrxProjectFactory implements IProjectFactory
 {
-    public create = (projectTypeId: string, args?: any): IProject =>
+    public create = (projectTypeId: string, projectName: string, projectDirectory: string, args?: any): IProject =>
     {
-        return createExampleProject("ExampleProject", "");
+        return createExampleProject(projectName, projectDirectory);
     }
 }
