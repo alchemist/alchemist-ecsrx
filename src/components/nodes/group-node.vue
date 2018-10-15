@@ -19,8 +19,6 @@
     import {Prop, Component, Vue} from "vue-property-decorator";
 
     import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist-editor/core";
-    import {ITypesToShow, ITypeData, commonTypeList, createNodeRuleset} from "@alchemist-editor/dotnet";
-
     import {default as ComponentsSection} from "../components-section.vue";
     import {GroupNode} from "../../models/nodes/group-node";
 

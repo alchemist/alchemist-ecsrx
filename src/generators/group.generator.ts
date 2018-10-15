@@ -1,10 +1,10 @@
 import {INodeGenerator, INode, addGeneratedFileHeader} from "@alchemist-editor/core";
 import {NamespaceNodeGroup, addUsings, generateUsings, getAllUsingsFromTypes} from "@alchemist-editor/dotnet";
 
-import {GroupNode} from "@/models/nodes/group-node";
-import {GroupData} from "@/models/data/group-data";
-import {EcsRxProject} from "@/models/project/ecsrx-project";
-import {ModelNode} from "@/models/nodes/model-node";
+import {GroupNode} from "../models/nodes/group-node";
+import {GroupData} from "../models/data/group-data";
+import {EcsRxProject} from "../models/project/ecsrx-project";
+import {ModelNode} from "../models/nodes/model-node";
 
 const withComponentsTemplate = (data: GroupData, namespace: string, generator: INodeGenerator) => {
     const usingStatements = getAllUsingsFromTypes(data.requiredComponents);

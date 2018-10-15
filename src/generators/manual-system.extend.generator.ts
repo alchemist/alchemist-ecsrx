@@ -1,12 +1,8 @@
-import {INodeGenerator, INode, addGeneratedFileHeader} from "@alchemist-editor/core";
-import {NamespaceNodeGroup, addUsings, generateUsings, getAllUsingsFromTypes} from "@alchemist-editor/dotnet";
+import {INodeGenerator, INode} from "@alchemist-editor/core";
+import {NamespaceNodeGroup, addUsings, generateUsings} from "@alchemist-editor/dotnet";
 import {EcsRxProject} from "../models/project/ecsrx-project";
 import {ManualSystemNode} from "../models/nodes/manual-system-node";
 import {ManualSystemData} from "../models/data/manual-system-data";
-import {
-    generateReactiveInitializer,
-    generateReactiveProperty
-} from "@/generators/helpers/reactive-helpers";
 
 const template = (data: ManualSystemData, namespace: string, generator: INodeGenerator) => {
 

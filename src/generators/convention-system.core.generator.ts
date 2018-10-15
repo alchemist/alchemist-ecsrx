@@ -1,7 +1,6 @@
 import {INodeGenerator, INode, addGeneratedFileHeader} from "@alchemist-editor/core";
 import {NamespaceNodeGroup, addUsings, generateUsings} from "@alchemist-editor/dotnet";
 
-
 import {EcsRxProject} from "../models/project/ecsrx-project";
 import {getAllUsingsFromProperties} from "./helpers/using-helpers";
 import {
@@ -13,7 +12,7 @@ import {ConventionSystemNode} from "../models/nodes/convention-system-node";
 import {
     generateReactiveInitializer,
     generateReactiveProperty
-} from "@/generators/helpers/reactive-helpers";
+} from "../generators/helpers/reactive-helpers";
 
 import {ConventionSystemData} from "../models/data/convention-system-data";
 

@@ -1,5 +1,5 @@
 import {INodeGenerator, INode, addGeneratedFileHeader} from "@alchemist-editor/core";
-import {NamespaceNodeGroup, addUsings, generateUsings, getAllUsingsFromTypes} from "@alchemist-editor/dotnet";
+import {NamespaceNodeGroup, addUsings, generateUsings} from "@alchemist-editor/dotnet";
 
 import {EcsRxProject} from "../models/project/ecsrx-project";
 import {getAllUsingsFromProperties} from "./helpers/using-helpers";
@@ -13,7 +13,7 @@ import {ManualSystemData} from "../models/data/manual-system-data";
 import {
     generateReactiveInitializer,
     generateReactiveProperty
-} from "@/generators/helpers/reactive-helpers";
+} from "../generators/helpers/reactive-helpers";
 
 const template = (data: ManualSystemData, namespace: string, generator: INodeGenerator) => {
 

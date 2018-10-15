@@ -1,7 +1,7 @@
 import {Node, NodeType, Point} from "@alchemist-editor/core";
 import {withRuleset} from "@treacherous/decorators";
 
-import {ConventionSystemData} from "@/models/data/convention-system-data";
+import {ConventionSystemData} from "../data/convention-system-data";
 
 export class ConventionSystemNode extends Node<ConventionSystemData>
 {

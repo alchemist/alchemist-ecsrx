@@ -1,8 +1,8 @@
 import {TypeData} from "@alchemist-editor/dotnet";
-import {ComponentNode} from "@/models/nodes/component-node";
-import {GroupNode} from "@/models/nodes/group-node";
-import {ModelNode} from "@/models/nodes/model-node";
-import {EventNode} from "@/models/nodes/event-node";
+import {ComponentNode} from "../../models/nodes/component-node";
+import {GroupNode} from "../../models/nodes/group-node";
+import {ModelNode} from "../../models/nodes/model-node";
+import {EventNode} from "../../models/nodes/event-node";
 
 export class EcsRxGetters
 {

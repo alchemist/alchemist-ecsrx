@@ -1,7 +1,7 @@
 import {Node, NodeType, Point} from "@alchemist-editor/core";
 import {withRuleset} from "@treacherous/decorators";
 
-import {ManualSystemData} from "@/models/data/manual-system-data";
+import {ManualSystemData} from "../data/manual-system-data";
 
 export class ManualSystemNode extends Node<ManualSystemData>
 {

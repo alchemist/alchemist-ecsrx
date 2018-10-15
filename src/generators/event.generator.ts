@@ -1,11 +1,11 @@
 import {INodeGenerator, INode, addGeneratedFileHeader} from "@alchemist-editor/core";
 import {NamespaceNodeGroup, addUsings, generateUsings} from "@alchemist-editor/dotnet";
 
-import {EcsRxProject} from "@/models/project/ecsrx-project";
-import {EventNode} from "@/models/nodes/event-node";
-import {getAllUsingsFromProperties} from "@/generators/helpers/using-helpers";
-import {generateProperty} from "@/generators/helpers/property-helpers";
-import {EventData} from "@/models/data/event-data";
+import {EcsRxProject} from "../models/project/ecsrx-project";
+import {EventNode} from "../models/nodes/event-node";
+import {getAllUsingsFromProperties} from "../generators/helpers/using-helpers";
+import {generateProperty} from "../generators/helpers/property-helpers";
+import {EventData} from "../models/data/event-data";
 
 const template = (data: EventData, namespace: string, generator: INodeGenerator) => {
 

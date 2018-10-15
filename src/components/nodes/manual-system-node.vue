@@ -20,7 +20,7 @@
     import {Prop, Component, Vue} from "vue-property-decorator";
 
     import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist-editor/core";
-    import {ITypesToShow, ITypeData, commonTypeList, createNodeRuleset, PropertiesSectionComponent as PropertiesSection} from "@alchemist-editor/dotnet";
+    import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection} from "@alchemist-editor/dotnet";
 
     import {default as ReactivePropertiesSection} from "../reactive-properties-section.vue";
     import {default as GroupSection} from "../group-section.vue";

@@ -1,7 +1,7 @@
 import {Node, NodeType, Point} from "@alchemist-editor/core";
 import {withRuleset} from "@treacherous/decorators";
 
-import {EventData} from "@/models/data/event-data";
+import {EventData} from "../data/event-data";
 
 export class EventNode extends Node<EventData>
 {

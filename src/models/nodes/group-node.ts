@@ -1,7 +1,7 @@
 import {Node, NodeType, Point} from "@alchemist-editor/core";
 import {withRuleset} from "@treacherous/decorators";
 
-import {GroupData} from "@/models/data/group-data";
+import {GroupData} from "../data/group-data";
 
 export class GroupNode extends Node<GroupData>
 {

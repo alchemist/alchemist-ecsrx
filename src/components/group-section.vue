@@ -24,7 +24,7 @@
 
 <script lang="ts">
     import { Component, Prop, Vue } from 'vue-property-decorator';
-    import {TypePickerComponent as TypePicker, TypeData, ITypesToShow, ITypeData} from "@alchemist-editor/dotnet";
+    import {TypePickerComponent as TypePicker, ITypesToShow, ITypeData} from "@alchemist-editor/dotnet";
     import {Getter} from "vuex-class";
     import {emptyGroupType} from "../types/ecsrx-types";
 

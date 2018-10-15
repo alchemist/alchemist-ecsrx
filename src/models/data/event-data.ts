@@ -1,7 +1,6 @@
 import {INodeData} from "@alchemist-editor/core";
-import {ITypeData, PropertyData} from "@alchemist-editor/dotnet";
+import {PropertyData} from "@alchemist-editor/dotnet";
 import {required, withDisplayName} from "@treacherous/decorators";
-
 
 export class EventData implements INodeData
 {

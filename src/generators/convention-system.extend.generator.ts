@@ -1,10 +1,10 @@
-import {INodeGenerator, INode, addGeneratedFileHeader} from "@alchemist-editor/core";
+import {INodeGenerator, INode} from "@alchemist-editor/core";
 import {NamespaceNodeGroup, addUsings, generateUsings} from "@alchemist-editor/dotnet";
 
 import {EcsRxProject} from "../models/project/ecsrx-project";
-import {ConventionSystemData} from "@/models/data/convention-system-data";
-import {ConventionSystemNode} from "@/models/nodes/convention-system-node";
-import {ecsrxSystemInterfaceTypes} from "@/types/ecsrx-types";
+import {ConventionSystemData} from "../models/data/convention-system-data";
+import {ConventionSystemNode} from "../models/nodes/convention-system-node";
+import {ecsrxSystemInterfaceTypes} from "../types/ecsrx-types";
 
 const template = (data: ConventionSystemData, namespace: string, generator: INodeGenerator) => {
 

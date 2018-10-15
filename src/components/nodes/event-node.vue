@@ -19,7 +19,7 @@
     import {Getter, Mutation} from "vuex-class";
 
     import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist-editor/core";
-    import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection, createNodeRuleset} from "@alchemist-editor/dotnet";
+    import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection} from "@alchemist-editor/dotnet";
 
     import {unityCommonTypeList} from "../../types/unity-common-types";
     import {EventNode} from "../../models/nodes/event-node";

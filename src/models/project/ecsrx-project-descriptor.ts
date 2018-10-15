@@ -1,5 +1,4 @@
 import {IProjectDescriptor} from "@alchemist-editor/core";
-import {NamespaceNodeGroup} from "@alchemist-editor/dotnet";
 import {EcsrxProjectDetails} from "./ecsrx-project-details";
 
 export class EcsRxProjectDescriptor implements IProjectDescriptor

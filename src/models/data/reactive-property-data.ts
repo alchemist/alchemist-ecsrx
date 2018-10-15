@@ -1,5 +1,4 @@
-import {INodeData} from "@alchemist-editor/core";
-import {ITypeData, PropertyData, TypeData} from "@alchemist-editor/dotnet";
+import {PropertyData, TypeData} from "@alchemist-editor/dotnet";
 
 export class ReactivePropertyData extends PropertyData {
 

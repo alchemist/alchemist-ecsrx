@@ -1,4 +1,4 @@
-import {ReactivePropertyData} from "@/models/data/reactive-property-data";
+import {ReactivePropertyData} from "../../models/data/reactive-property-data";
 
 export const shouldReactiveHaveSetter = (property: ReactivePropertyData) => {
     return !property.isReactive && !property.isCollection;

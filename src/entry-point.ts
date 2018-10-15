@@ -13,15 +13,15 @@ import {NodeEntry, NodeRegistry, ProjectEntry, ProjectRegistry, NodeGeneratorReg
 import {ComponentNode} from "./models/nodes/component-node";
 import {ModelNode} from "./models/nodes/model-node";
 import {GroupNode} from "./models/nodes/group-node";
-import {EcsRxGetters} from "@/stores/modules/ecsrx-getters";
+import {EcsRxGetters} from "./stores/modules/ecsrx-getters";
 import {EventNode} from "./models/nodes/event-node";
 import {ManualSystemNode} from "./models/nodes/manual-system-node";
 import {ManualSystemCoreGenerator} from "./generators/manual-system.core.generator";
-import {ManualSystemExtendGenerator} from "@/generators/manual-system.extend.generator";
-import {EcsrxNodeFactory} from "@/factory/ecsrx-node-factory";
-import {ConventionSystemNode} from "@/models/nodes/convention-system-node";
-import {ConventionSystemCoreGenerator} from "@/generators/convention-system.core.generator";
-import {ConventionSystemExtendGenerator} from "@/generators/convention-system.extend.generator";
+import {ManualSystemExtendGenerator} from "./generators/manual-system.extend.generator";
+import {EcsrxNodeFactory} from "./factory/ecsrx-node-factory";
+import {ConventionSystemNode} from "./models/nodes/convention-system-node";
+import {ConventionSystemCoreGenerator} from "./generators/convention-system.core.generator";
+import {ConventionSystemExtendGenerator} from "./generators/convention-system.extend.generator";
 
 import {EcsRxProject} from "./models/project/ecsrx-project";
 import {EcsrxProjectDetails} from "./models/project/ecsrx-project-details";
