@@ -9,7 +9,7 @@
             </div>
         </template>
         <template slot="content">
-            <group-section :group.sync="node.data.group"></group-section>
+            <type-section title="Group Type" :allowedTypes="allowedGroupTypes" :type.sync="node.data.group"></type-section>
             <properties-section :properties="node.data.dependencies" propertiesName="Dependencies" :typesToShow="allowedDependencyTypes"></properties-section>
             <reactive-properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes"></reactive-properties-section>
         </template>
@@ -20,19 +20,18 @@
     import {Prop, Component, Vue} from "vue-property-decorator";
 
     import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist-editor/core";
-    import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection} from "@alchemist-editor/dotnet";
+    import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection, TypeSectionComponent as TypeSection} from "@alchemist-editor/dotnet";
 
     import {default as ReactivePropertiesSection} from "../reactive-properties-section.vue";
-    import {default as GroupSection} from "../group-section.vue";
     import {unityCommonTypeList, unityGameTypeList} from "../../types/unity-common-types";
-    import {ecsrxInterfaceTypeList} from "../../types/ecsrx-types";
+    import {ecsrxInterfaceTypeList, emptyGroupType} from "../../types/ecsrx-types";
 
     import {ManualSystemNode} from "../../models/nodes/manual-system-node";
     import {Getter} from "vuex-class";
 
     @Component({
         components: {
-            GroupSection,
+            TypeSection,
             PropertiesSection,
             ReactivePropertiesSection,
             NodeContainer
@@ -47,6 +46,16 @@
         @Getter("modelTypes")
         public modelTypes: Array<ITypeData>;
 
+        @Getter("groupTypes")
+        public projectGroupTypes: Array<ITypeData>;
+
+        public get allowedGroupTypes(): ITypesToShow {
+            return {
+                "Default Groups": [emptyGroupType],
+                "Project Groups": this.projectGroupTypes || []
+            };
+        }
+
         public allowedDependencyTypes: ITypesToShow = {
             "Common": commonTypeList,
             "Unity": unityCommonTypeList
@@ -58,7 +67,7 @@
                 "Unity": unityCommonTypeList,
                 "Unity Game": unityGameTypeList,
                 "EcsRx": ecsrxInterfaceTypeList,
-                "Models": this.modelTypes,
+                "Models": this.modelTypes || [],
             };
         }
     }

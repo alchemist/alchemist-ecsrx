@@ -1,5 +1,5 @@
 import {INodeData} from "@alchemist-editor/core";
-import {ITypeData, PropertyData} from "@alchemist-editor/dotnet";
+import {ITypeData, PropertyData, commonTypes} from "@alchemist-editor/dotnet";
 import {required, withDisplayName, minLength} from "@treacherous/decorators";
 import {emptyGroupType} from "../../types/ecsrx-types";
 import {ReactivePropertyData} from "./reactive-property-data";
@@ -16,7 +16,7 @@ export class ConventionSystemData  implements INodeData
     @minLength(1)
     public implementsSystems: Array<ITypeData> = [];
 
-    public genericDataType: ITypeData;
+    public genericDataType: ITypeData = commonTypes.int;
 
     public group: ITypeData = emptyGroupType;
 

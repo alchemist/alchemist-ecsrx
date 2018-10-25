@@ -10,7 +10,8 @@
         </template>
         <template slot="content">
             <systems-section :implementations="node.data.implementsSystems"></systems-section>
-            <group-section :group.sync="node.data.group"></group-section>
+            <type-section title="Generic Type" :allowedTypes="allowedGenericTypes" :type.sync="node.data.genericDataType"></type-section>
+            <type-section title="Group Type" :allowedTypes="allowedGroupTypes" :type.sync="node.data.group"></type-section>
             <properties-section :properties="node.data.dependencies" propertiesName="Dependencies" :typesToShow="allowedDependencyTypes"></properties-section>
             <reactive-properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes"></reactive-properties-section>
         </template>
@@ -22,21 +23,20 @@
     import {Getter} from "vuex-class";
 
     import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist-editor/core";
-    import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection, } from "@alchemist-editor/dotnet";
+    import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection, TypeSectionComponent as TypeSection } from "@alchemist-editor/dotnet";
 
     import {default as ReactivePropertiesSection} from "../reactive-properties-section.vue";
-    import {default as GroupSection} from "../group-section.vue";
     import {unityCommonTypeList, unityGameTypeList} from "../../types/unity-common-types";
-    import {ecsrxInterfaceTypeList} from "../../types/ecsrx-types";
+    import {ecsrxInterfaceTypeList, emptyGroupType} from "../../types/ecsrx-types";
     import {ConventionSystemNode} from "../../models/nodes/convention-system-node";
     import {default as SystemsSection} from "../systems-section.vue";
 
     @Component({
         components: {
             SystemsSection,
-            GroupSection,
             PropertiesSection,
             ReactivePropertiesSection,
+            TypeSection,
             NodeContainer
         },
         mixins: [ ValidateNode(ConventionSystemNode) ]
@@ -48,6 +48,19 @@
 
         @Getter("modelTypes")
         public modelTypes: Array<ITypeData>;
+
+        @Getter("eventTypes")
+        public eventTypes: Array<ITypeData>;
+
+        @Getter("groupTypes")
+        public projectGroupTypes: Array<ITypeData>;
+
+        public get allowedGroupTypes(): ITypesToShow {
+            return {
+                "Default Groups": [emptyGroupType],
+                "Project Groups": this.projectGroupTypes
+            };
+        }
 
         public allowedDependencyTypes: ITypesToShow = {
             "Common": commonTypeList,
@@ -61,6 +74,17 @@
                 "Unity Game": unityGameTypeList,
                 "EcsRx": ecsrxInterfaceTypeList,
                 "Models": this.modelTypes,
+            };
+        }
+
+        public get allowedGenericTypes(): ITypesToShow
+        {
+            return {
+                "Common": commonTypeList,
+                "Unity": unityCommonTypeList,
+                "Unity Game": unityGameTypeList,
+                "Models": this.modelTypes,
+                "Events": this.eventTypes
             };
         }
     }
