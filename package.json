@@ -1,5 +1,5 @@
 {
-  "name": "@alchemist-editor/ecsrx",
+  "name": "@alchemist/ecsrx",
   "version": "0.1.2",
   "main": "dist/alchemist.ecsrx.common.js",
   "types": "dist/index.d.ts",
@@ -7,6 +7,11 @@
     "barrel": "barrelsby -c barrel.config.json",
     "build": "vue-cli-service build --target lib --name alchemist.ecsrx src/index.ts"
   },
+  "files": [
+    "dist/**/*",
+    "LICENSE",
+    "readme.md"
+  ],
   "dependencies": {
     "@alchemist-editor/core": "^0.1.4",
     "@alchemist-editor/dotnet": "^0.1.2",

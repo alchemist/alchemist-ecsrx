@@ -23,10 +23,8 @@ import {ConventionSystemNode} from "./models/nodes/convention-system-node";
 import {ConventionSystemCoreGenerator} from "./generators/convention-system.core.generator";
 import {ConventionSystemExtendGenerator} from "./generators/convention-system.extend.generator";
 
-import {EcsRxProject} from "./models/project/ecsrx-project";
-import {EcsrxProjectDetails} from "./models/project/ecsrx-project-details";
+import {EcsrxClassLibraryProjectDescriptor} from "./models/project/ecsrx-class-library-project-descriptor";
 import {EcsrxProjectFactory} from "./factory/ecsrx-project-factory";
-import {EcsRxProjectDescriptor} from "./models/project/ecsrx-project-descriptor";
 
 import "@/styles/theme.ext.scss";
 
@@ -51,7 +49,7 @@ export function setup(nodeRegistry: NodeRegistry, generatorRegistry: NodeGenerat
     nodeRegistry.addNode(new NodeEntry(ManualSystemNode.NodeType.id, ManualSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Manual System"));
     nodeRegistry.addNode(new NodeEntry(ConventionSystemNode.NodeType.id, ConventionSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Convention System"));
 
-    projectRegistry.addProject(new ProjectEntry(new EcsRxProjectDescriptor(), new EcsrxProjectFactory()));
+    projectRegistry.addProject(new ProjectEntry(new EcsrxClassLibraryProjectDescriptor(), new EcsrxProjectFactory()));
 
     const ecsrxModule = {
         getters: new EcsRxGetters()

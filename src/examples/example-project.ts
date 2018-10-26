@@ -12,10 +12,10 @@ import { ManualSystemNode } from "../models/nodes/manual-system-node";
 import { ModelData } from "../models/data/model-data";
 import { ModelNode } from "../models/nodes/model-node";
 import { ReactivePropertyData } from "../models/data/reactive-property-data";
-import {EcsrxProjectDetails} from "../models/project/ecsrx-project-details";
 
 import {NamespaceNodeGroup, commonTypes} from "@alchemist-editor/dotnet";
 import {WorkspaceConfig, Point, IProject} from "@alchemist-editor/core";
+import {EcsrxClassLibraryProjectDescriptor} from "../models/project/ecsrx-class-library-project-descriptor";
 
 const exampleComponent = new ComponentData();
 exampleComponent.name = "ExampleComponent";
@@ -40,7 +40,7 @@ const examplesNamespace = new NamespaceNodeGroup(false, "Root", new WorkspaceCon
 
 export function createExampleProject(projectName: string, outputDirectory: string) : IProject
 {
-    const exampleProject = new EcsRxProject(EcsrxProjectDetails.projectType, EcsrxProjectDetails.version, projectName, outputDirectory);
+    const exampleProject = new EcsRxProject(EcsrxClassLibraryProjectDescriptor.type, EcsrxClassLibraryProjectDescriptor.currentVersion, projectName, outputDirectory);
     exampleProject.nodeGroups.push(examplesNamespace);
     return exampleProject;
 }
