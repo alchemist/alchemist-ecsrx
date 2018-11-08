@@ -13,6 +13,7 @@ export class ConventionSystemData  implements INodeData
     public dependencies: Array<PropertyData> = [];
     public properties: Array<ReactivePropertyData> = [];
 
+    @required()
     @minLength(1)
     public implementsSystems: Array<ITypeData> = [];
 

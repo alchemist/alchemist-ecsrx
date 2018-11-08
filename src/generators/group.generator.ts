@@ -14,7 +14,7 @@ const withComponentsTemplate = (data: GroupData, namespace: string, generator: I
         ${addGeneratedFileHeader(generator)}
         ${generateUsings(usingStatements)}
             
-        namespace ${namespace}.Groups
+        namespace ${namespace}
         {           
             public class ${data.name} : IGroup
             {

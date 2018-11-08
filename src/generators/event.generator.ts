@@ -15,7 +15,7 @@ const template = (data: EventData, namespace: string, generator: INodeGenerator)
         ${addGeneratedFileHeader(generator)}
         ${generateUsings(usingStatements)}
             
-        namespace ${namespace}.Events
+        namespace ${namespace}
         {           
             public class ${data.name}
             {

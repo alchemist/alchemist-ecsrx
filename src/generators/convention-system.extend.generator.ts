@@ -11,6 +11,9 @@ const template = (data: ConventionSystemData, namespace: string, generator: INod
     const usingStatements = [];
     addUsings(usingStatements, "EcsRx.Groups.Observable");
 
+    if(data.genericDataType.namespace)
+    { addUsings(usingStatements, data.genericDataType.namespace); }
+
     const hasReactToGroupSystem = data.implementsSystems.indexOf(ecsrxSystemInterfaceTypes.iReactToGroupSystem) >= 0;
     const hasReactToEntitySystem = data.implementsSystems.indexOf(ecsrxSystemInterfaceTypes.iReactToEntitySystem) >= 0;
     const hasReactToDataSystem = data.implementsSystems.indexOf(ecsrxSystemInterfaceTypes.iReactToDataSystem) >= 0;
@@ -20,9 +23,9 @@ const template = (data: ConventionSystemData, namespace: string, generator: INod
     return `          
         ${generateUsings(usingStatements)}
       
-        namespace ${namespace}.Systems
+        namespace ${namespace}
         {           
-            public partial class ${data.name}${hasReactToDataSystem ? "<__TYPE__>" : ""}
+            public partial class ${data.name}
             {
                 ${hasReactToGroupSystem ? `
                 public IObservable<IObservableGroup> ReactToGroup(IObservableGroup observableGroup)
@@ -39,7 +42,7 @@ const template = (data: ConventionSystemData, namespace: string, generator: INod
                 ` : ""}
                 
                 ${hasReactToDataSystem ? `
-                public IObservable<__TYPE__> ReactToData(IEntity entity)
+                public IObservable<${data.genericDataType.name}> ReactToData(IEntity entity)
                 {
                     // TODO: Put your logic in here
                 }
@@ -60,7 +63,7 @@ const template = (data: ConventionSystemData, namespace: string, generator: INod
                 ` : ""}
                 
                 ${hasReactToDataSystem ? `
-                public void Process(IEntity entity, __TYPE__ reactionData);
+                public void Process(IEntity entity, ${data.genericDataType.name} reactionData);
                 {
                     // TODO: Put your logic in here
                 }

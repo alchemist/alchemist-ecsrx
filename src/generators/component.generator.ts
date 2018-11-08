@@ -24,7 +24,7 @@ const template = (data: ComponentData, namespace: string, generator: INodeGenera
         ${addGeneratedFileHeader(generator)}
         ${generateUsings(usingStatements)}
             
-        namespace ${namespace}.Components
+        namespace ${namespace}
         {           
             public class ${data.name} : IComponent ${hasReactiveProperties ? ", IDisposable" : ""}
             {

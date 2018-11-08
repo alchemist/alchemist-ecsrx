@@ -29,7 +29,7 @@ const template = (data: ManualSystemData, namespace: string, generator: INodeGen
         ${addGeneratedFileHeader(generator)}
         ${generateUsings(usingStatements)}
             
-        namespace ${namespace}.Systems
+        namespace ${namespace}
         {           
             public partial class ${data.name} : IManualSystem ${hasReactiveProperties ? ", IDisposable" : ""}
             {

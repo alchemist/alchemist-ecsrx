@@ -15,6 +15,7 @@ import {
 } from "../generators/helpers/reactive-helpers";
 
 import {ConventionSystemData} from "../models/data/convention-system-data";
+import {ecsrxSystemInterfaceTypes} from "..";
 
 const template = (data: ConventionSystemData, namespace: string, generator: INodeGenerator) => {
 
@@ -26,13 +27,20 @@ const template = (data: ConventionSystemData, namespace: string, generator: INod
     if(hasReactiveProperties)
     { addUsings(usingStatements, "System", "EcsRx.Reactive"); }
 
-    const systemImplementations = data.implementsSystems.join(",");
+    if(data.genericDataType.namespace)
+    { addUsings(usingStatements, data.genericDataType.namespace); }
+
+    const hasReactToDataSystem = data.implementsSystems.indexOf(ecsrxSystemInterfaceTypes.iReactToDataSystem) >= 0;
+    let systemImplementations = data.implementsSystems.map(x => x.name).join(",");
+
+    if(hasReactToDataSystem)
+    { systemImplementations = systemImplementations.replace("IReactToDataSystem", `IReactToDataSystem<${data.genericDataType.name}>`); }
 
     return `
         ${addGeneratedFileHeader(generator)}
         ${generateUsings(usingStatements)}
             
-        namespace ${namespace}.Systems
+        namespace ${namespace}
         {           
             public partial class ${data.name} : ${systemImplementations} ${hasReactiveProperties ? ", IDisposable" : ""}
             {

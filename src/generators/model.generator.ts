@@ -25,7 +25,7 @@ const template = (data: ModelData, namespace: string, generator: INodeGenerator)
         ${addGeneratedFileHeader(generator)}
         ${generateUsings(usingStatements)}
             
-        namespace ${namespace}.Models
+        namespace ${namespace}
         {           
             public class ${data.name} ${hasReactiveProperties ? ": IDisposable" : ""}
             {
