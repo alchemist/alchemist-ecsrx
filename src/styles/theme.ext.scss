@@ -1,15 +1,43 @@
 @import "./variables";
 @import "~@alchemist-editor/core/src/styles/helpers";
 
+@mixin tree-node($color, $tag) {
+  @include auto-gradient($color);
+  &:before { content: $tag; }
+  margin-right: 1em;
+  color: white;
+  width: 2.5em;
+  font-weight: bold;
+}
+
 #project-tree
 {
-  .tree-text
+  span[node-type="ecsrx-component"] {
+    @include tree-node($component-node-color, 'C');
+  }
+
+  span[node-type="ecsrx-convention-system"]
   {
-    &[node-type="ecsrx-component"] span { @include auto-gradient($component-node-color); }
-    &[node-type="ecsrx-convention-system"] span { @include auto-gradient($conventional-system-node-color); }
-    &[node-type="ecsrx-event"] span { @include auto-gradient($event-node-color); }
-    &[node-type="ecsrx-group"] span { @include auto-gradient($group-node-color); }
-    &[node-type="ecsrx-manual-system"] span { @include auto-gradient($manual-system-node-color); }
-    &[node-type="ecsrx-model"] span { @include auto-gradient($model-node-color); }
+    @include tree-node($conventional-system-node-color, 'S');
+  }
+
+  span[node-type="ecsrx-event"]
+  {
+    @include tree-node($event-node-color, 'E');
+  }
+
+  span[node-type="ecsrx-group"]
+  {
+    @include tree-node($group-node-color, 'G');
+  }
+
+  span[node-type="ecsrx-manual-system"]
+  {
+    @include tree-node($manual-system-node-color, 'S');
+  }
+
+  span[node-type="ecsrx-model"]
+  {
+    @include tree-node($model-node-color, 'M');
   }
 }
