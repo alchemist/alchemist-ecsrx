@@ -1,5 +1,5 @@
-import {INodeGenerator, INode} from "@alchemist-editor/core";
-import {NamespaceNodeGroup, addUsings, generateUsings} from "@alchemist-editor/dotnet";
+import {INodeGenerator, INode} from "@alchemist/core";
+import {NamespaceNodeGroup, addUsings, generateUsings} from "@alchemist/dotnet";
 import {EcsRxProject} from "../models/project/ecsrx-project";
 import {ManualSystemNode} from "../models/nodes/manual-system-node";
 import {ManualSystemData} from "../models/data/manual-system-data";

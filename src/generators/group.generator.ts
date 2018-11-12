@@ -1,5 +1,5 @@
-import {INodeGenerator, INode, addGeneratedFileHeader} from "@alchemist-editor/core";
-import {NamespaceNodeGroup, addUsings, generateUsings, getAllUsingsFromTypes} from "@alchemist-editor/dotnet";
+import {INodeGenerator, INode, addGeneratedFileHeader} from "@alchemist/core";
+import {NamespaceNodeGroup, addUsings, generateUsings, getAllUsingsFromTypes} from "@alchemist/dotnet";
 
 import {GroupNode} from "../models/nodes/group-node";
 import {GroupData} from "../models/data/group-data";

@@ -1,4 +1,4 @@
-import {TypeData} from "@alchemist-editor/dotnet";
+import {TypeData} from "@alchemist/dotnet";
 
 export const unityCommonTypes = {
     vector2: new TypeData("Vector2", "UnityEngine"),

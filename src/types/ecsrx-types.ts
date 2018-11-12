@@ -1,4 +1,4 @@
-import {TypeData, TypeDataWithImplementation} from "@alchemist-editor/dotnet";
+import {TypeData, TypeDataWithImplementation} from "@alchemist/dotnet";
 
 export const ecsrxDefaultTypes = {
     eventSystem: new TypeData("EventSystem", "EcsRx.Events"),

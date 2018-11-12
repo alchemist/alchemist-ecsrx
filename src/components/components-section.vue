@@ -35,7 +35,7 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'vue-property-decorator';
     import {Getter} from "vuex-class";
-    import {ITypeData, unknownType, ITypesToShow, TypeData, TypePickerComponent as TypePicker} from "@alchemist-editor/dotnet";
+    import {ITypeData, unknownType, ITypesToShow, TypeData, TypePickerComponent as TypePicker} from "@alchemist/dotnet";
 
     @Component({
         components: {TypePicker}

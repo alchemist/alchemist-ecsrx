@@ -8,7 +8,7 @@ import {ModelGenerator} from "./generators/model.generator";
 import {GroupGenerator} from "./generators/group.generator";
 import {EventGenerator} from "./generators/event.generator";
 
-import {NodeEntry, NodeRegistry, ProjectEntry, ProjectRegistry, NodeGeneratorRegistry} from "@alchemist-editor/core";
+import {NodeEntry, NodeRegistry, ProjectEntry, ProjectRegistry, NodeGeneratorRegistry} from "@alchemist/core";
 
 import {ComponentNode} from "./models/nodes/component-node";
 import {ModelNode} from "./models/nodes/model-node";

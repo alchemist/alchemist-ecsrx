@@ -1,4 +1,4 @@
-import {PropertyData} from "@alchemist-editor/dotnet";
+import {PropertyData} from "@alchemist/dotnet";
 import {startsWith} from "lodash";
 
 export const shouldHaveSetter = (property: PropertyData) => {

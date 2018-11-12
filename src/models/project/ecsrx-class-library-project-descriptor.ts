@@ -1,4 +1,4 @@
-import {IProjectDescriptor} from "@alchemist-editor/core";
+import {IProjectDescriptor} from "@alchemist/core";
 import {ComponentNode} from "../nodes/component-node";
 import {ConventionSystemNode} from "../nodes/convention-system-node";
 import {EventNode} from "../nodes/event-node";

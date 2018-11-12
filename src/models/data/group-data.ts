@@ -1,5 +1,5 @@
-import {INodeData} from "@alchemist-editor/core";
-import {ITypeData} from "@alchemist-editor/dotnet";
+import {INodeData} from "@alchemist/core";
+import {ITypeData} from "@alchemist/dotnet";
 import {required, withDisplayName} from "@treacherous/decorators";
 
 export class GroupData implements INodeData

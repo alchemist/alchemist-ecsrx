@@ -1,4 +1,4 @@
-import {PropertyData, TypeData} from "@alchemist-editor/dotnet";
+import {PropertyData, TypeData} from "@alchemist/dotnet";
 
 export class ReactivePropertyData extends PropertyData {
 

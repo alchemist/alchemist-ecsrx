@@ -18,7 +18,7 @@
 <script lang="ts">
     import {Prop, Component, Vue} from "vue-property-decorator";
 
-    import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist-editor/core";
+    import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist/core";
     import {default as ComponentsSection} from "../components-section.vue";
     import {GroupNode} from "../../models/nodes/group-node";
 
@@ -37,7 +37,7 @@
 </script>
 
 <style lang="scss">
-    @import "~@alchemist-editor/core/src/styles/helpers";
+    @import "~@alchemist/core/src/styles/helpers";
     @import "../../styles/variables";
 
     [node-type="ecsrx-group"] .node-header

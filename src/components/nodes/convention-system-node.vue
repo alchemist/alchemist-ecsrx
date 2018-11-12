@@ -22,8 +22,8 @@
     import {Prop, Component, Vue} from "vue-property-decorator";
     import {Getter} from "vuex-class";
 
-    import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist-editor/core";
-    import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection, TypeSectionComponent as TypeSection } from "@alchemist-editor/dotnet";
+    import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist/core";
+    import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection, TypeSectionComponent as TypeSection } from "@alchemist/dotnet";
 
     import {default as ReactivePropertiesSection} from "../reactive-properties-section.vue";
     import {unityCommonTypeList, unityGameTypeList} from "../../types/unity-common-types";
@@ -91,7 +91,7 @@
 </script>
 
 <style lang="scss">
-    @import "~@alchemist-editor/core/src/styles/helpers";
+    @import "~@alchemist/core/src/styles/helpers";
     @import "../../styles/variables";
 
     [node-type="ecsrx-convention-system"] .node-header

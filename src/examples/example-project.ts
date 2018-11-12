@@ -13,8 +13,8 @@ import { ModelData } from "../models/data/model-data";
 import { ModelNode } from "../models/nodes/model-node";
 import { ReactivePropertyData } from "../models/data/reactive-property-data";
 
-import {NamespaceNodeGroup, commonTypes} from "@alchemist-editor/dotnet";
-import {WorkspaceConfig, Point, IProject} from "@alchemist-editor/core";
+import {NamespaceNodeGroup, commonTypes} from "@alchemist/dotnet";
+import {WorkspaceConfig, Point, IProject} from "@alchemist/core";
 import {EcsrxClassLibraryProjectDescriptor} from "../models/project/ecsrx-class-library-project-descriptor";
 
 const exampleComponent = new ComponentData();

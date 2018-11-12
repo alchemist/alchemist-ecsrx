@@ -1,4 +1,4 @@
-import {IProject, IProjectFactory } from "@alchemist-editor/core";
+import {IProject, IProjectFactory } from "@alchemist/core";
 import {createExampleProject} from "../examples/example-project";
 
 export class EcsrxProjectFactory implements IProjectFactory

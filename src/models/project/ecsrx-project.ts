@@ -1,4 +1,4 @@
-import {Project} from "@alchemist-editor/core";
+import {Project} from "@alchemist/core";
 
 export class EcsRxProject extends Project
 {

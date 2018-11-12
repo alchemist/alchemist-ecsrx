@@ -1,5 +1,5 @@
-import {INodeData} from "@alchemist-editor/core";
-import {ITypeData, PropertyData} from "@alchemist-editor/dotnet";
+import {INodeData} from "@alchemist/core";
+import {ITypeData, PropertyData} from "@alchemist/dotnet";
 import {required, withDisplayName} from "@treacherous/decorators";
 
 import {emptyGroupType} from "../../types/ecsrx-types";

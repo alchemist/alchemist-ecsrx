@@ -48,7 +48,7 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'vue-property-decorator';
     import {ReactivePropertyData} from "../models/data/reactive-property-data";
-    import {TypePickerComponent as TypePicker, ITypesToShow, commonTypeList, unknownType} from "@alchemist-editor/dotnet";
+    import {TypePickerComponent as TypePicker, ITypesToShow, commonTypeList, unknownType} from "@alchemist/dotnet";
     import {createRulesetFor} from "@treacherous/decorators";
     import {createRuleset} from "@treacherous/core";
     import {ValidateWith} from "@treacherous/vue";

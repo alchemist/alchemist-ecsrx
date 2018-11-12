@@ -1,5 +1,5 @@
 @import "./variables";
-@import "~@alchemist-editor/core/src/styles/helpers";
+@import "~@alchemist/core/src/styles/helpers";
 
 @mixin tree-node($color, $tag) {
   @include auto-gradient($color);

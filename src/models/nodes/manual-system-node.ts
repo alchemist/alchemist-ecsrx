@@ -1,4 +1,4 @@
-import {Node, NodeType, Point} from "@alchemist-editor/core";
+import {Node, NodeType, Point} from "@alchemist/core";
 import {withRuleset} from "@treacherous/decorators";
 
 import {ManualSystemData} from "../data/manual-system-data";

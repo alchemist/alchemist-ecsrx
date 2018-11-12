@@ -1,4 +1,4 @@
-import {INode, INodeFactory, Point} from "@alchemist-editor/core";
+import {INode, INodeFactory, Point} from "@alchemist/core";
 
 import {ComponentNode} from "../models/nodes/component-node";
 import {ComponentData} from "../models/data/component-data";

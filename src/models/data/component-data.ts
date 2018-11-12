@@ -1,5 +1,5 @@
 import {ReactivePropertyData} from "./reactive-property-data";
-import {INodeData} from "@alchemist-editor/core";
+import {INodeData} from "@alchemist/core";
 import {required, withDisplayName, withRulesetForEach} from "@treacherous/decorators";
 
 export class ComponentData implements INodeData

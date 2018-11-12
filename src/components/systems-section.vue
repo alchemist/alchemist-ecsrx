@@ -34,7 +34,7 @@
 
 <script lang="ts">
     import { Component, Prop, Vue } from 'vue-property-decorator';
-    import {TypePickerComponent as TypePicker, TypeData, ITypesToShow, ITypeData, unknownType} from "@alchemist-editor/dotnet";
+    import {TypePickerComponent as TypePicker, TypeData, ITypesToShow, ITypeData, unknownType} from "@alchemist/dotnet";
     import {ecsrxSystemInterfaceTypeList} from "../types/ecsrx-types";
 
     @Component({

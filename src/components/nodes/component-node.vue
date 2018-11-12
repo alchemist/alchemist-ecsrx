@@ -18,8 +18,8 @@
     import {ComponentNode} from "../../models/nodes/component-node";
     import {Prop, Vue, Component} from "vue-property-decorator";
 
-    import {NodeContainerComponent as NodeContainer, createNodeRuleset, ValidateNode} from "@alchemist-editor/core";
-    import {ITypesToShow, commonTypeList} from "@alchemist-editor/dotnet";
+    import {NodeContainerComponent as NodeContainer, createNodeRuleset, ValidateNode} from "@alchemist/core";
+    import {ITypesToShow, commonTypeList} from "@alchemist/dotnet";
     import {default as ReactivePropertiesSection} from "../reactive-properties-section.vue";
     import {unityCommonTypeList} from "../../types/unity-common-types";
     import {ecsrxInterfaceTypeList} from "../../types/ecsrx-types";
@@ -45,7 +45,7 @@
 </script>
 
 <style lang="scss">
-    @import "~@alchemist-editor/core/src/styles/helpers";
+    @import "~@alchemist/core/src/styles/helpers";
     @import "../../styles/variables";
 
     [node-type="ecsrx-component"] .node-header
