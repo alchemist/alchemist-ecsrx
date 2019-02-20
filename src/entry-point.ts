@@ -27,7 +27,7 @@ import {EcsrxClassLibraryProjectDescriptor} from "./models/project/ecsrx-class-l
 import {EcsrxProjectFactory} from "./factory/ecsrx-project-factory";
 import {EntryPoint, PluginContext} from "@alchemist/core";
 
-import "@/styles/theme.ext.scss";
+import "./styles/theme.ext.scss";
 
 export const setup: EntryPoint = (pluginContext: PluginContext): Promise<any> => {
     pluginContext.nodeGeneratorRegistry.addGenerator(new ComponentGenerator());

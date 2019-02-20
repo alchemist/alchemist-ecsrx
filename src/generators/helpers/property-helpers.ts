@@ -1,5 +1,5 @@
 import {PropertyData} from "@alchemist/dotnet";
-import {startsWith} from "lodash";
+import {startsWith} from "lodash-es";
 
 export const shouldHaveSetter = (property: PropertyData) => {
     return !property.isCollection;
