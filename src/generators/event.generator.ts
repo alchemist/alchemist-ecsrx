@@ -35,7 +35,7 @@ export class EventGenerator implements INodeGenerator
     }
 
     public generate(node: EventNode, group: NamespaceNodeGroup, project: EcsRxProject): Promise<string> {
-        const templateOutput = template(node.data, group.isNamespace ? group.name : "", this);
+        const templateOutput = template(node.data, group.name, this);
         return Promise.resolve(templateOutput);
     }
 
