@@ -49,35 +49,35 @@ const template = (data: ConventionSystemData, namespace: string, generator: INod
                 ` : ""}
                 
                 ${hasReactToGroupSystem ? `
-                public void IReactToGroupSystem.Process(IEntity entity);
+                public void IReactToGroupSystem.Process(IEntity entity)
                 {
                     // TODO: Put your logic in here
                 }
                 ` : ""}
                 
                 ${hasReactToEntitySystem ? `
-                public void IReactToEntitySystem.Process(IEntity entity);
+                public void IReactToEntitySystem.Process(IEntity entity)
                 {
                     // TODO: Put your logic in here
                 }
                 ` : ""}
                 
                 ${hasReactToDataSystem ? `
-                public void Process(IEntity entity, ${data.genericDataType.name} reactionData);
+                public void Process(IEntity entity, ${data.genericDataType.name} reactionData)
                 {
                     // TODO: Put your logic in here
                 }
                 ` : ""}
                 
                 ${hasSetupSystem ? `
-                public void Setup(IEntity entity);
+                public void Setup(IEntity entity)
                 {
                     // TODO: Put your logic in here
                 }
                 ` : ""}
                 
                 ${hasTeardownSystem ? `
-                public void Teardown(IEntity entity);
+                public void Teardown(IEntity entity)
                 {
                     // TODO: Put your logic in here
                 }
