@@ -1,5 +1,4 @@
 import {PropertyData} from "@alchemist/dotnet";
-import {startsWith} from "lodash-es";
 
 export const shouldHaveSetter = (property: PropertyData) => {
     return !property.isCollection;
@@ -36,9 +35,9 @@ export const generateInitializer = (property: PropertyData) => {
 
 export const getArgNameFor = (property: PropertyData) => {
     let sanitisedPropertyName = property.name;
-    if (startsWith(sanitisedPropertyName, "_")) {
-        return sanitisedPropertyName.replace("_", "");
-    }
+    if (sanitisedPropertyName.startsWith("_"))
+    { return sanitisedPropertyName.replace("_", ""); }
+
     return sanitisedPropertyName;
 }
 

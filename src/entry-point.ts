@@ -25,39 +25,48 @@ import {ConventionSystemExtendGenerator} from "./generators/convention-system.ex
 
 import {EcsrxClassLibraryProjectDescriptor} from "./models/project/ecsrx-class-library-project-descriptor";
 import {EcsrxProjectFactory} from "./factory/ecsrx-project-factory";
-import {EntryPoint, PluginContext} from "@alchemist/core";
+import {IPlugin, DefaultOrdering, PluginContext} from "@alchemist/core";
 
 import "./styles/theme.ext.scss";
 
-export const setup: EntryPoint = (pluginContext: PluginContext): Promise<any> => {
-    pluginContext.nodeGeneratorRegistry.addGenerator(new ComponentGenerator());
-    pluginContext.nodeGeneratorRegistry.addGenerator(new ModelGenerator());
-    pluginContext.nodeGeneratorRegistry.addGenerator(new GroupGenerator());
-    pluginContext.nodeGeneratorRegistry.addGenerator(new EventGenerator());
-    pluginContext.nodeGeneratorRegistry.addGenerator(new ManualSystemCoreGenerator());
-    pluginContext.nodeGeneratorRegistry.addGenerator(new ManualSystemExtendGenerator());
-    pluginContext.nodeGeneratorRegistry.addGenerator(new ConventionSystemCoreGenerator());
-    pluginContext.nodeGeneratorRegistry.addGenerator(new ConventionSystemExtendGenerator());
+export class Plugin implements IPlugin
+{
+    public name = "alchemist-ecsrx";
+    public version = "0.3.0";
+    public order = DefaultOrdering;
 
-    const ecsRxCategory = "EcsRx";
-    const ecsRxSystemsCategory = "EcsRx - Systems";
-    const ecsRxFactory = new EcsrxNodeFactory();
+    public setup(pluginContext: PluginContext): Promise<any>
+    {
+        pluginContext.nodeGeneratorRegistry.addGenerator(new ComponentGenerator());
+        pluginContext.nodeGeneratorRegistry.addGenerator(new ModelGenerator());
+        pluginContext.nodeGeneratorRegistry.addGenerator(new GroupGenerator());
+        pluginContext.nodeGeneratorRegistry.addGenerator(new EventGenerator());
+        pluginContext.nodeGeneratorRegistry.addGenerator(new ManualSystemCoreGenerator());
+        pluginContext.nodeGeneratorRegistry.addGenerator(new ManualSystemExtendGenerator());
+        pluginContext.nodeGeneratorRegistry.addGenerator(new ConventionSystemCoreGenerator());
+        pluginContext.nodeGeneratorRegistry.addGenerator(new ConventionSystemExtendGenerator());
 
-    pluginContext.nodeRegistry.addNode(new NodeEntry(ComponentNode.NodeType.id, ComponentNodeComponent, ecsRxFactory, ecsRxCategory, "Component"));
-    pluginContext.nodeRegistry.addNode(new NodeEntry(ModelNode.NodeType.id, ModelNodeComponent, ecsRxFactory, ecsRxCategory, "Model"));
-    pluginContext.nodeRegistry.addNode(new NodeEntry(GroupNode.NodeType.id, GroupNodeComponent, ecsRxFactory, ecsRxCategory, "Group"));
-    pluginContext.nodeRegistry.addNode(new NodeEntry(EventNode.NodeType.id, EventNodeComponent, ecsRxFactory, ecsRxCategory, "Event"));
-    pluginContext.nodeRegistry.addNode(new NodeEntry(ManualSystemNode.NodeType.id, ManualSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Manual System"));
-    pluginContext.nodeRegistry.addNode(new NodeEntry(ConventionSystemNode.NodeType.id, ConventionSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Convention System"));
+        const ecsRxCategory = "EcsRx";
+        const ecsRxSystemsCategory = "EcsRx - Systems";
+        const ecsRxFactory = new EcsrxNodeFactory();
 
-    pluginContext.projectRegistry.addProject(new ProjectEntry(new EcsrxClassLibraryProjectDescriptor(), new EcsrxProjectFactory()));
+        pluginContext.nodeRegistry.addNode(new NodeEntry(ComponentNode.NodeType.id, ComponentNodeComponent, ecsRxFactory, ecsRxCategory, "Component"));
+        pluginContext.nodeRegistry.addNode(new NodeEntry(ModelNode.NodeType.id, ModelNodeComponent, ecsRxFactory, ecsRxCategory, "Model"));
+        pluginContext.nodeRegistry.addNode(new NodeEntry(GroupNode.NodeType.id, GroupNodeComponent, ecsRxFactory, ecsRxCategory, "Group"));
+        pluginContext.nodeRegistry.addNode(new NodeEntry(EventNode.NodeType.id, EventNodeComponent, ecsRxFactory, ecsRxCategory, "Event"));
+        pluginContext.nodeRegistry.addNode(new NodeEntry(ManualSystemNode.NodeType.id, ManualSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Manual System"));
+        pluginContext.nodeRegistry.addNode(new NodeEntry(ConventionSystemNode.NodeType.id, ConventionSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Convention System"));
 
-    const ecsrxModule = {
-        getters: new EcsRxGetters()
-    };
+        pluginContext.projectRegistry.addProject(new ProjectEntry(new EcsrxClassLibraryProjectDescriptor(), new EcsrxProjectFactory()));
 
-    pluginContext.store.registerModule("ecsrx", ecsrxModule);
+        const ecsrxModule = {
+            getters: new EcsRxGetters()
+        };
 
-    console.log("Loaded Plugin: EcsRx");
-    return Promise.resolve();
+        pluginContext.store.registerModule("ecsrx", ecsrxModule);
+
+        console.log("Loaded Plugin: EcsRx");
+        return Promise.resolve();
+    }
 }
+

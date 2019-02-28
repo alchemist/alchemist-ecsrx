@@ -1,4 +1,4 @@
-const path = require('path');
+const {resolve} = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
@@ -6,9 +6,9 @@ module.exports = {
     target: "electron-renderer",
     entry: './src/index.ts',
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: resolve(__dirname, './dist'),
         publicPath: '/dist/',
-        filename: 'alchemist.ecsrx.common.js',
+        filename: 'index.js',
         libraryTarget: "commonjs2"
     },
     module: {
@@ -51,7 +51,8 @@ module.exports = {
         extensions: ['.ts', '.js', '.vue', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
-        }
+        },
+        modules: ["./node_modules"]
     },
     externals: [
         "@treacherous/core",
@@ -59,10 +60,9 @@ module.exports = {
         "@treacherous/vue",
         "@treacherous/decorators",
         "@alchemist/core",
-        "@alchemist/dotnet",
+        {"@alchemist/dotnet": "../dotnet/index.js"},
         "uuid",
         "interactjs",
-        "lodash-es",
         "tslib",
         "vue",
         "vue-class-component",
