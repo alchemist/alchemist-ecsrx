@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@types/node": "^10.12.6",
-    "@types/lodash-es": "^4.17.2",
     "barrelsby": "^1.0.2",
     "css-loader": "^2.1.0",
     "file-loader": "^3.0.1",
