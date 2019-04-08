@@ -23,11 +23,14 @@ import {ConventionSystemNode} from "./models/nodes/convention-system-node";
 import {ConventionSystemCoreGenerator} from "./generators/convention-system.core.generator";
 import {ConventionSystemExtendGenerator} from "./generators/convention-system.extend.generator";
 
+import {EcsRxProjectGenerator} from "./generators/projects/ecsrx-project-generator";
+
 import {EcsrxClassLibraryProjectDescriptor} from "./models/project/ecsrx-class-library-project-descriptor";
 import {EcsrxProjectFactory} from "./factory/ecsrx-project-factory";
 import {IPlugin, DefaultOrdering, PluginContext} from "@alchemist/core";
 
 import "./styles/theme.ext.scss";
+
 
 export class Plugin implements IPlugin
 {
@@ -58,6 +61,7 @@ export class Plugin implements IPlugin
         pluginContext.nodeRegistry.addNode(new NodeEntry(ConventionSystemNode.NodeType.id, ConventionSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Convention System"));
 
         pluginContext.projectRegistry.addProject(new ProjectEntry(new EcsrxClassLibraryProjectDescriptor(), new EcsrxProjectFactory()));
+        pluginContext.projectGeneratorRegistry.addGenerator(new EcsRxProjectGenerator());
 
         const ecsrxModule = {
             getters: new EcsRxGetters()

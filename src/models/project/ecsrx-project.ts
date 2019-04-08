@@ -1,9 +1,10 @@
-import {Project} from "@alchemist/core";
+import {DotNetProject} from "@alchemist/dotnet";
+import {EcsrxClassLibraryProjectDescriptor} from "./ecsrx-class-library-project-descriptor";
 
-export class EcsRxProject extends Project
+export class EcsRxProject extends DotNetProject
 {
-    constructor(projectType: string, version: string, projectName: string, outputDirectory: string)
+    constructor(projectName: string, outputDirectory: string, projectType = EcsrxClassLibraryProjectDescriptor.type, projectVersion = EcsrxClassLibraryProjectDescriptor.currentVersion)
     {
-        super(projectType, version, projectName, outputDirectory)
+        super(projectType, projectVersion, projectName, outputDirectory)
     }
 }

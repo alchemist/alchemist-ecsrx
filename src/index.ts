@@ -14,6 +14,7 @@ export * from "./generators/model.generator";
 export * from "./generators/helpers/property-helpers";
 export * from "./generators/helpers/reactive-helpers";
 export * from "./generators/helpers/using-helpers";
+export * from "./generators/projects/ecsrx-project-generator";
 export * from "./models/data/component-data";
 export * from "./models/data/convention-system-data";
 export * from "./models/data/event-data";

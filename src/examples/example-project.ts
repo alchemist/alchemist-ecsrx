@@ -29,18 +29,18 @@ exampleComponent.properties.push(reactiveProperty);
 const collectionProperty = new ReactivePropertyData("CollectionType", commonTypes.string, true);
 exampleComponent.properties.push(collectionProperty);
 
-const examplesNamespace = new NamespaceNodeGroup(false, "Root", new WorkspaceConfig(),[
-    new ComponentNode(exampleComponent, new Point(5000,5000)),
-    new ModelNode(new ModelData("ExampleModel"), new Point(5500, 5000)),
-    new GroupNode(new GroupData("TestGroup"), new Point(6000, 5000)),
-    new EventNode(new EventData("SomeExampleEvent"), new Point(5000, 5500)),
-    new ManualSystemNode(new ManualSystemData("SomeDummySystem"), new Point(5000, 6000)),
-    new ConventionSystemNode(new ConventionSystemData("SomeConventionSystem"), new Point(5500,5500))
-]);
-
 export function createExampleProject(projectName: string, outputDirectory: string) : IProject
 {
-    const exampleProject = new EcsRxProject(EcsrxClassLibraryProjectDescriptor.type, EcsrxClassLibraryProjectDescriptor.currentVersion, projectName, outputDirectory);
+    const exampleProject = new EcsRxProject(projectName, outputDirectory);
+    const examplesNamespace = new NamespaceNodeGroup(false, projectName, new WorkspaceConfig(),[
+        new ComponentNode(exampleComponent, new Point(5000,5000)),
+        new ModelNode(new ModelData("ExampleModel"), new Point(5500, 5000)),
+        new GroupNode(new GroupData("TestGroup"), new Point(6000, 5000)),
+        new EventNode(new EventData("SomeExampleEvent"), new Point(5000, 5500)),
+        new ManualSystemNode(new ManualSystemData("SomeDummySystem"), new Point(5000, 6000)),
+        new ConventionSystemNode(new ConventionSystemData("SomeConventionSystem"), new Point(5500,5500))
+    ]);
     exampleProject.nodeGroups.push(examplesNamespace);
+
     return exampleProject;
 }
