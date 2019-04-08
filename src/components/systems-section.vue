@@ -35,7 +35,7 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'vue-property-decorator';
     import {TypePickerComponent as TypePicker, TypeData, ITypesToShow, ITypeData, unknownType} from "@alchemist/dotnet";
-    import {ecsrxSystemInterfaceTypeList} from "../types/ecsrx-types";
+    import {ecsrxreactiveSystemInterfaceTypeList} from "../types/ecsrx-types";
 
     @Component({
         components: {TypePicker}
@@ -61,7 +61,7 @@
         }
 
         public get allowedTypes(): ITypesToShow {
-            const filteredConventions = ecsrxSystemInterfaceTypeList.filter(x => this.implementations.indexOf(x) < 0);
+            const filteredConventions = ecsrxreactiveSystemInterfaceTypeList.filter(x => this.implementations.indexOf(x) < 0);
             return {
                 "System Conventions": filteredConventions
             };

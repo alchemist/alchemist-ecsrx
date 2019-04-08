@@ -8,29 +8,32 @@ import {
     generateDependency,
     generateDependencyArgs
 } from "./helpers/property-helpers";
-import {ConventionSystemNode} from "../models/nodes/convention-system-node";
+import {ReactiveSystemNode} from "../models/nodes/reactive-system-node";
 import {
     generateReactiveInitializer,
     generateReactiveProperty
 } from "../generators/helpers/reactive-helpers";
 
-import {ConventionSystemData} from "../models/data/convention-system-data";
-import {ecsrxSystemInterfaceTypes} from "..";
+import {ReactiveSystemData} from "../models/data/reactive-system-data";
+import {ecsrxReactiveSystemInterfaceTypes} from "..";
 
-const template = (data: ConventionSystemData, namespace: string, generator: INodeGenerator) => {
+const template = (data: ReactiveSystemData, namespace: string, generator: INodeGenerator) => {
 
     const hasReactiveProperties = data.properties.some(x => x.isReactive);
     const usingStatements = getAllUsingsFromProperties(data.properties);
-    addUsings(usingStatements, "EcsRx.Systems");
+    addUsings(usingStatements, "EcsRx.Plugins.ReactiveSystems.Systems");
     addUsings(usingStatements, data.group.namespace);
 
     if(hasReactiveProperties)
-    { addUsings(usingStatements, "System", "EcsRx.Reactive"); }
+    {
+        addUsings(usingStatements, "System", "EcsRx.ReactiveData");
+        addUsings(usingStatements, "System", "EcsRx.ReactiveData.Collections");
+    }
 
     if(data.genericDataType.namespace)
     { addUsings(usingStatements, data.genericDataType.namespace); }
 
-    const hasReactToDataSystem = data.implementsSystems.indexOf(ecsrxSystemInterfaceTypes.iReactToDataSystem) >= 0;
+    const hasReactToDataSystem = data.implementsSystems.indexOf(ecsrxReactiveSystemInterfaceTypes.iReactToDataSystem) >= 0;
     let systemImplementations = data.implementsSystems.map(x => x.name).join(",");
 
     if(hasReactToDataSystem)
@@ -39,7 +42,7 @@ const template = (data: ConventionSystemData, namespace: string, generator: INod
     return `
         ${addGeneratedFileHeader(generator)}
         ${generateUsings(usingStatements)}
-            
+                    
         namespace ${namespace}
         {           
             public partial class ${data.name} : ${systemImplementations} ${hasReactiveProperties ? ", IDisposable" : ""}
@@ -65,22 +68,22 @@ const template = (data: ConventionSystemData, namespace: string, generator: INod
         }`;
 };
 
-export class ConventionSystemCoreGenerator implements INodeGenerator
+export class ReactiveSystemCoreGenerator implements INodeGenerator
 {
-    public name = "EcsRx Convention System Generator";
+    public name = "EcsRx Reactive System Generator";
     public replaceExisting = true;
     public version = "1.0.0";
 
     public canHandleType(node: INode): boolean {
-        return node.type.id == ConventionSystemNode.NodeType.id;
+        return node.type.id == ReactiveSystemNode.NodeType.id;
     }
 
-    public generate(node: ConventionSystemNode, group: NamespaceNodeGroup, project: EcsRxProject): Promise<string> {
+    public generate(node: ReactiveSystemNode, group: NamespaceNodeGroup, project: EcsRxProject): Promise<string> {
         const templateOutput = template(node.data, group.name, this);
         return Promise.resolve(templateOutput);
     }
 
-    public computeFileLocation(node: ConventionSystemNode, group: NamespaceNodeGroup, project: EcsRxProject): string {
+    public computeFileLocation(node: ReactiveSystemNode, group: NamespaceNodeGroup, project: EcsRxProject): string {
         return `${project.outputDirectory}/${group.name}/Systems/${node.data.name}.generated.cs`;
     }
 }

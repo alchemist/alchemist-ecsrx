@@ -16,7 +16,7 @@
     @include tree-node($component-node-color, 'C');
   }
 
-  span[node-type="ecsrx-convention-system"]
+  span[node-type="ecsrx-reactive-system"]
   {
     @include tree-node($conventional-system-node-color, 'S');
   }

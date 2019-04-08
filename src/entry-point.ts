@@ -1,6 +1,6 @@
 import {
     ComponentNodeComponent, ModelNodeComponent, GroupNodeComponent,
-    EventNodeComponent, ManualSystemNodeComponent, ConventionSystemNodeComponent
+    EventNodeComponent, ManualSystemNodeComponent, ReactiveSystemNodeComponent
 } from "./component.exports"
 
 import {ComponentGenerator} from "./generators/component.generator";
@@ -19,9 +19,9 @@ import {ManualSystemNode} from "./models/nodes/manual-system-node";
 import {ManualSystemCoreGenerator} from "./generators/manual-system.core.generator";
 import {ManualSystemExtendGenerator} from "./generators/manual-system.extend.generator";
 import {EcsrxNodeFactory} from "./factory/ecsrx-node-factory";
-import {ConventionSystemNode} from "./models/nodes/convention-system-node";
-import {ConventionSystemCoreGenerator} from "./generators/convention-system.core.generator";
-import {ConventionSystemExtendGenerator} from "./generators/convention-system.extend.generator";
+import {ReactiveSystemNode} from "./models/nodes/reactive-system-node";
+import {ReactiveSystemCoreGenerator} from "./generators/reactive-system.core.generator";
+import {ReactiveSystemExtendGenerator} from "./generators/reactive-system.extend.generator";
 
 import {EcsRxProjectGenerator} from "./generators/projects/ecsrx-project-generator";
 
@@ -46,8 +46,8 @@ export class Plugin implements IPlugin
         pluginContext.nodeGeneratorRegistry.addGenerator(new EventGenerator());
         pluginContext.nodeGeneratorRegistry.addGenerator(new ManualSystemCoreGenerator());
         pluginContext.nodeGeneratorRegistry.addGenerator(new ManualSystemExtendGenerator());
-        pluginContext.nodeGeneratorRegistry.addGenerator(new ConventionSystemCoreGenerator());
-        pluginContext.nodeGeneratorRegistry.addGenerator(new ConventionSystemExtendGenerator());
+        pluginContext.nodeGeneratorRegistry.addGenerator(new ReactiveSystemCoreGenerator());
+        pluginContext.nodeGeneratorRegistry.addGenerator(new ReactiveSystemExtendGenerator());
 
         const ecsRxCategory = "EcsRx";
         const ecsRxSystemsCategory = "EcsRx - Systems";
@@ -58,7 +58,7 @@ export class Plugin implements IPlugin
         pluginContext.nodeRegistry.addNode(new NodeEntry(GroupNode.NodeType.id, GroupNodeComponent, ecsRxFactory, ecsRxCategory, "Group"));
         pluginContext.nodeRegistry.addNode(new NodeEntry(EventNode.NodeType.id, EventNodeComponent, ecsRxFactory, ecsRxCategory, "Event"));
         pluginContext.nodeRegistry.addNode(new NodeEntry(ManualSystemNode.NodeType.id, ManualSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Manual System"));
-        pluginContext.nodeRegistry.addNode(new NodeEntry(ConventionSystemNode.NodeType.id, ConventionSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Convention System"));
+        pluginContext.nodeRegistry.addNode(new NodeEntry(ReactiveSystemNode.NodeType.id, ReactiveSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Reactive System"));
 
         pluginContext.projectRegistry.addProject(new ProjectEntry(new EcsrxClassLibraryProjectDescriptor(), new EcsrxProjectFactory()));
         pluginContext.projectGeneratorRegistry.addGenerator(new EcsRxProjectGenerator());

@@ -28,7 +28,7 @@
     import {default as ReactivePropertiesSection} from "../reactive-properties-section.vue";
     import {unityCommonTypeList, unityGameTypeList} from "../../types/unity-common-types";
     import {ecsrxInterfaceTypeList, emptyGroupType} from "../../types/ecsrx-types";
-    import {ConventionSystemNode} from "../../models/nodes/convention-system-node";
+    import {ReactiveSystemNode} from "../../models/nodes/reactive-system-node";
     import {default as SystemsSection} from "../systems-section.vue";
 
     @Component({
@@ -39,12 +39,12 @@
             TypeSection,
             NodeContainer
         },
-        mixins: [ ValidateNode(ConventionSystemNode) ]
+        mixins: [ ValidateNode(ReactiveSystemNode) ]
     })
     export default class extends Vue
     {
         @Prop()
-        public node: ConventionSystemNode;
+        public node: ReactiveSystemNode;
 
         @Getter("modelTypes")
         public modelTypes: Array<ITypeData>;
@@ -94,7 +94,7 @@
     @import "~@alchemist/core/src/styles/helpers";
     @import "../../styles/variables";
 
-    [node-type="ecsrx-convention-system"] .node-header
+    [node-type="ecsrx-reactive-system"] .node-header
     {
         @include auto-gradient($conventional-system-node-color);
     }

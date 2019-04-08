@@ -18,7 +18,7 @@ export const ecsrxInterfaceTypes = {
     iEntity: new TypeDataWithImplementation("IEntity", "EcsRx.Entities", ecsrxDefaultTypes.entity)
 };
 
-export const ecsrxSystemInterfaceTypes = {
+export const ecsrxReactiveSystemInterfaceTypes = {
     iReactToEntitySystem: new TypeData("IReactToEntitySystem", "EcsRx.Systems"),
     iReactToGroupSystem: new TypeData("IReactToGroupSystem", "EcsRx.Systems"),
     iReactToDataSystem: new TypeData("IReactToDataSystem", "EcsRx.Systems"),
@@ -29,4 +29,4 @@ export const ecsrxSystemInterfaceTypes = {
 export const emptyGroupType = new TypeData("EmptyGroup", "EcsRx.Groups");
 export const ecsrxInterfaceTypeList = Object.values(ecsrxInterfaceTypes);
 export const ecsrxDefaultTypeList = Object.values(ecsrxDefaultTypes);
-export const ecsrxSystemInterfaceTypeList = Object.values(ecsrxSystemInterfaceTypes);
+export const ecsrxreactiveSystemInterfaceTypeList = Object.values(ecsrxReactiveSystemInterfaceTypes);

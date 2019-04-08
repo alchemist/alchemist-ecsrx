@@ -15,7 +15,10 @@ const template = (data: ComponentData, namespace: string, generator: INodeGenera
     addUsings(usingStatements, "EcsRx.Components");
 
     if(hasReactiveProperties)
-    { addUsings(usingStatements, "System", "EcsRx.Reactive"); }
+    {
+        addUsings(usingStatements, "System", "EcsRx.ReactiveData");
+        addUsings(usingStatements, "System", "EcsRx.ReactiveData.Collections");
+    }
 
     if(hasCollectionProperties)
     { addUsings(usingStatements, "System.Collections.Generic"); }

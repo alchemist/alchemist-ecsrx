@@ -19,7 +19,10 @@ const template = (data: ModelData, namespace: string, generator: INodeGenerator)
     const usingStatements = getAllUsingsFromProperties(data.properties);
 
     if(hasReactiveProperties)
-    { addUsings(usingStatements, "System", "EcsRx.Reactive"); }
+    {
+        addUsings(usingStatements, "System", "EcsRx.ReactiveData");
+        addUsings(usingStatements, "System", "EcsRx.ReactiveData.Collections");
+    }
 
     return `
         ${addGeneratedFileHeader(generator)}

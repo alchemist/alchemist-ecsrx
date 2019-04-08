@@ -6,10 +6,11 @@ const template = (project: IProject, generator: EcsRxProjectGenerator, options?:
 
     return `
         <ItemGroup>
-            <PackageReference Include="EcsRx" Version="3.2.18" />
-            <PackageReference Include="EcsRx.Infrastructure" Version="3.2.18" />
-            <PackageReference Include="EcsRx.MicroRx" Version="3.2.18" />
-            <PackageReference Include="EcsRx.Plugins.ReactiveSystems" Version="3.2.18" />
+            <PackageReference Include="EcsRx" Version="3.5.34" />
+            <PackageReference Include="EcsRx.Infrastructure" Version="3.5.34" />
+            <PackageReference Include="EcsRx.MicroRx" Version="3.5.34" />
+            <PackageReference Include="EcsRx.Plugins.ReactiveSystems" Version="3.5.34" />
+            <PackageReference Include="EcsRx.ReactiveData" Version="3.5.34" />
             <PackageReference Include="System.Reactive" Version="4.1.0.0" />
         </ItemGroup>`;
 };

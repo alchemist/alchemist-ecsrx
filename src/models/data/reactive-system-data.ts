@@ -4,7 +4,7 @@ import {required, withDisplayName, minLength} from "@treacherous/decorators";
 import {emptyGroupType} from "../../types/ecsrx-types";
 import {ReactivePropertyData} from "./reactive-property-data";
 
-export class ConventionSystemData  implements INodeData
+export class ReactiveSystemData  implements INodeData
 {
     @required()
     @withDisplayName("System Name")

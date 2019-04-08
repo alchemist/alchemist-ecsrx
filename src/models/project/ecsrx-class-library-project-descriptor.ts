@@ -1,6 +1,6 @@
 import {IProjectDescriptor} from "@alchemist/core";
 import {ComponentNode} from "../nodes/component-node";
-import {ConventionSystemNode} from "../nodes/convention-system-node";
+import {ReactiveSystemNode} from "../nodes/reactive-system-node";
 import {EventNode} from "../nodes/event-node";
 import {GroupNode} from "../nodes/group-node";
 import {ManualSystemNode} from "../nodes/manual-system-node";
@@ -21,7 +21,7 @@ export class EcsrxClassLibraryProjectDescriptor implements IProjectDescriptor
 
     public compatibleNodeTypeIds =[
         ComponentNode.NodeType.id,
-        ConventionSystemNode.NodeType.id,
+        ReactiveSystemNode.NodeType.id,
         EventNode.NodeType.id,
         GroupNode.NodeType.id,
         ManualSystemNode.NodeType.id,
