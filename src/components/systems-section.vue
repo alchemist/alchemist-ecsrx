@@ -2,7 +2,7 @@
     <div class="m-sm">
         <div>
             <div class="tags has-addons">
-                <span class="tag">{{title || "System Conventions"}}</span>
+                <span class="tag header-tag">{{title || "System Conventions"}}</span>
                 <a class="tag is-primary" @click="addImplementation()">Add</a>
             </div>
         </div>

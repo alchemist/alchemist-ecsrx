@@ -2,7 +2,7 @@
     <div class="m-sm">
         <div>
             <div class="tags has-addons">
-                <span class="tag">{{title || "Components"}}</span>
+                <span class="tag header-tag">{{title || "Components"}}</span>
                 <a class="tag is-primary" @click="addComponent()">Add</a>
             </div>
         </div>

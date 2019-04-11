@@ -44,6 +44,7 @@ export function createExampleProject(projectName: string, outputDirectory: strin
         new ManualSystemNode(new ManualSystemData("SomeDummySystem"), new Point(5000, 6000)),
         new ReactiveSystemNode(reactiveSystemData, new Point(5500,5500))
     ]);
+
     exampleProject.nodeGroups.push(examplesNamespace);
 
     return exampleProject;
