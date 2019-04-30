@@ -5,6 +5,7 @@ import {EventNode} from "../nodes/event-node";
 import {GroupNode} from "../nodes/group-node";
 import {ManualSystemNode} from "../nodes/manual-system-node";
 import {ModelNode} from "../nodes/model-node";
+import {NamespaceNodeGroup} from "@alchemist/dotnet";
 
 export class EcsrxClassLibraryProjectDescriptor implements IProjectDescriptor
 {
@@ -19,7 +20,7 @@ export class EcsrxClassLibraryProjectDescriptor implements IProjectDescriptor
     public title = "EcsRx Class Library";
     public description = `Create a .net class library project that targets the EcsRx framework`;
 
-    public compatibleNodeTypeIds =[
+    public compatibleNodeTypeIds = [
         ComponentNode.NodeType.id,
         ReactiveSystemNode.NodeType.id,
         EventNode.NodeType.id,
@@ -27,4 +28,8 @@ export class EcsrxClassLibraryProjectDescriptor implements IProjectDescriptor
         ManualSystemNode.NodeType.id,
         ModelNode.NodeType.id
     ];
+
+    public compatibleNodeGroupTypeIds = [
+        NamespaceNodeGroup.NodeGroupType.id
+    ]
 }
