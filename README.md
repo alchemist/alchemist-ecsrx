@@ -32,7 +32,15 @@ Allows creation of EcsRx related projects/nodes etc, such as:
 
 ## How do I use it?
 
-If you are developing on top of the library then add the dependency to `@alchemist/ecsrx`, if you are consuming this plugin in the wild then just drop the built plugin in the applications plugins folder, it does depend upon `@ecsrx/dotnet` plugin.
+If you are developing on top of the library then add the dependency to `@alchemist/ecsrx`.
+ 
+For using with alchemist application do the following plugin setup:
+
+- Create a `ecsrx` folder within alchemist `plugins` directory
+- Put the `index.js` file into the `ecsrx` directory
+- Run alchemist
+
+The plugin should be picked up, and allow you to create EcsRx projects, it does depend upon `@alchemist/dotnet` plugin.
 
 ## Blurb
 
