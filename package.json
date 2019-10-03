@@ -15,8 +15,8 @@
     "readme.md"
   ],
   "dependencies": {
-    "@alchemist/core": "^0.5.1",
-    "@alchemist/dotnet": "^0.4.0",
+    "@alchemist/core": "^0.5.6",
+    "@alchemist/dotnet": "^0.4.7",
     "@treacherous/core": "^0.17.7",
     "@treacherous/decorators": "^0.2.4",
     "@treacherous/vue": "^0.4.2",

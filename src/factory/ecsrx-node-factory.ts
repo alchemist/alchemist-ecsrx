@@ -10,6 +10,8 @@ import {GroupData} from "../models/data/group-data";
 import {GroupNode} from "../models/nodes/group-node";
 import {ManualSystemNode} from "../models/nodes/manual-system-node";
 import {ManualSystemData} from "../models/data/manual-system-data";
+import {ReactiveSystemNode} from "../models/nodes/reactive-system-node";
+import {ReactiveSystemData} from "../models/data/reactive-system-data";
 
 export class EcsrxNodeFactory implements INodeFactory
 {
@@ -21,6 +23,7 @@ export class EcsrxNodeFactory implements INodeFactory
             case EventNode.NodeType.id: return new EventNode(new EventData("NewEvent"), position);
             case GroupNode.NodeType.id: return new GroupNode(new GroupData("NewGroup"), position);
             case ManualSystemNode.NodeType.id: return new ManualSystemNode(new ManualSystemData("NewManualSystem"), position);
+            case ReactiveSystemNode.NodeType.id: return new ReactiveSystemNode(new ReactiveSystemData("NewReactiveSystem"), position);
         }
         return null;
     }

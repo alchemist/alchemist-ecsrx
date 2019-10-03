@@ -27,6 +27,7 @@ import {EcsRxProjectGenerator} from "./generators/projects/ecsrx-project-generat
 
 import {EcsrxClassLibraryProjectDescriptor} from "./models/project/ecsrx-class-library-project-descriptor";
 import {EcsrxProjectFactory} from "./factory/ecsrx-project-factory";
+import {EcsRxProjectSerializer} from "./projects/ecsrx-project-serializer";
 import {IPlugin, DefaultOrdering, PluginContext} from "@alchemist/core";
 
 import "./styles/theme.ext.scss";
@@ -60,7 +61,7 @@ export class Plugin implements IPlugin
         pluginContext.nodeRegistry.addNode(new NodeEntry(ManualSystemNode.NodeType.id, ManualSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Manual System"));
         pluginContext.nodeRegistry.addNode(new NodeEntry(ReactiveSystemNode.NodeType.id, ReactiveSystemNodeComponent, ecsRxFactory, ecsRxSystemsCategory, "Reactive System"));
 
-        pluginContext.projectRegistry.addProject(new ProjectEntry(new EcsrxClassLibraryProjectDescriptor(), new EcsrxProjectFactory()));
+        pluginContext.projectRegistry.addProject(new ProjectEntry(new EcsrxClassLibraryProjectDescriptor(), new EcsrxProjectFactory(), new EcsRxProjectSerializer()));
         pluginContext.projectGeneratorRegistry.addGenerator(new EcsRxProjectGenerator());
 
         const ecsrxModule = {

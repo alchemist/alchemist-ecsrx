@@ -34,6 +34,7 @@ export * from "./models/nodes/model-node";
 export * from "./models/nodes/reactive-system-node";
 export * from "./models/project/ecsrx-class-library-project-descriptor";
 export * from "./models/project/ecsrx-project";
+export * from "./projects/ecsrx-project-serializer";
 export * from "./stores/modules/ecsrx-getters";
 export * from "./types/ecsrx-types";
 export * from "./types/unity-common-types";
