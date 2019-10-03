@@ -1,10 +1,11 @@
 import {INodeGenerator, INode} from "@alchemist/core";
-import {NamespaceNodeGroup, addUsings, generateUsings} from "@alchemist/dotnet";
+import {NamespaceNodeGroup, addUsings, generateUsings, TypeData, ITypeData} from "@alchemist/dotnet";
 
 import {EcsRxProject} from "../models/project/ecsrx-project";
 import {ReactiveSystemData} from "../models/data/reactive-system-data";
 import {ReactiveSystemNode} from "../models/nodes/reactive-system-node";
 import {ecsrxReactiveSystemInterfaceTypes} from "../types/ecsrx-types";
+import {containsType} from "./helpers/type-helpers";
 
 const template = (data: ReactiveSystemData, namespace: string, generator: INodeGenerator) => {
 
@@ -16,11 +17,11 @@ const template = (data: ReactiveSystemData, namespace: string, generator: INodeG
     if(data.genericDataType.namespace)
     { addUsings(usingStatements, data.genericDataType.namespace); }
 
-    const hasReactToGroupSystem = data.implementsSystems.indexOf(ecsrxReactiveSystemInterfaceTypes.iReactToGroupSystem) >= 0;
-    const hasReactToEntitySystem = data.implementsSystems.indexOf(ecsrxReactiveSystemInterfaceTypes.iReactToEntitySystem) >= 0;
-    const hasReactToDataSystem = data.implementsSystems.indexOf(ecsrxReactiveSystemInterfaceTypes.iReactToDataSystem) >= 0;
-    const hasSetupSystem = data.implementsSystems.indexOf(ecsrxReactiveSystemInterfaceTypes.iSetupSystem) >= 0;
-    const hasTeardownSystem = data.implementsSystems.indexOf(ecsrxReactiveSystemInterfaceTypes.iTeardownSystem) >= 0;
+    const hasReactToGroupSystem = containsType(data.implementsSystems, ecsrxReactiveSystemInterfaceTypes.iReactToGroupSystem);
+    const hasReactToEntitySystem = containsType(data.implementsSystems, ecsrxReactiveSystemInterfaceTypes.iReactToEntitySystem);
+    const hasReactToDataSystem = containsType(data.implementsSystems, ecsrxReactiveSystemInterfaceTypes.iReactToDataSystem);
+    const hasSetupSystem = containsType(data.implementsSystems, ecsrxReactiveSystemInterfaceTypes.iSetupSystem);
+    const hasTeardownSystem = containsType(data.implementsSystems, ecsrxReactiveSystemInterfaceTypes.iTeardownSystem);
 
     return `          
         ${generateUsings(usingStatements)}
