@@ -68,7 +68,6 @@ export class EcsRxProjectSerializer extends DotNetProjectSerializer
         const dataType = new GroupData();
         Object.assign(dataType, node.data);
         node.data = dataType;
-        debugger;
 
         const requiredComponents = node.data.requiredComponents;
         for(let i=requiredComponents.length-1; i>=0; i--)
