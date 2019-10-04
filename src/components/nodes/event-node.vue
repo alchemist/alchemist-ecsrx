@@ -9,14 +9,14 @@
             </div>
         </template>
         <template slot="content">
-            <properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes"></properties-section>
+            <properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes" @model-state-changed="refreshValidation"></properties-section>
         </template>
     </node-container>
 </template>
 
 <script lang="ts">
     import {Prop, Component, Vue} from "vue-property-decorator";
-    import {Getter, Mutation} from "vuex-class";
+    import {Getter} from "vuex-class";
 
     import {NodeContainerComponent as NodeContainer, ValidateNode} from "@alchemist/core";
     import {ITypesToShow, ITypeData, commonTypeList, PropertiesSectionComponent as PropertiesSection} from "@alchemist/dotnet";
@@ -37,7 +37,7 @@
         @Prop()
         public node: EventNode;
 
-        @Getter("modelTypes")
+        @Getter("ecsrx/modelTypes")
         public modelTypes: Array<ITypeData>;
 
         public get allowedPropertyTypes(): ITypesToShow {

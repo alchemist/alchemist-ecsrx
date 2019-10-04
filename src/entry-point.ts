@@ -65,6 +65,7 @@ export class Plugin implements IPlugin
         pluginContext.projectGeneratorRegistry.addGenerator(new EcsRxProjectGenerator());
 
         const ecsrxModule = {
+            namespaced: true,
             getters: new EcsRxGetters()
         };
 

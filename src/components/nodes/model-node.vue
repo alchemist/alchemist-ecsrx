@@ -9,8 +9,8 @@
             </div>
         </template>
         <template slot="content">
-            <properties-section :properties="node.data.dependencies" :propertiesName="'Dependencies'" :typesToShow="allowedDependencyTypes"></properties-section>
-            <reactive-properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes"></reactive-properties-section>
+            <properties-section :properties="node.data.dependencies" :propertiesName="'Dependencies'" :typesToShow="allowedDependencyTypes" @model-state-changed="refreshValidation"></properties-section>
+            <reactive-properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes" @model-state-changed="refreshValidation"></reactive-properties-section>
         </template>
     </node-container>
 </template>
@@ -41,7 +41,7 @@
         @Prop()
         public node: ModelNode;
 
-        @Getter("modelTypes")
+        @Getter("ecsrx/modelTypes")
         public modelTypes: Array<ITypeData>;
 
         public get allowedDependencyTypes(): ITypesToShow

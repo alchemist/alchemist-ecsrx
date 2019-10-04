@@ -9,7 +9,7 @@
         <div v-for="(implementation, index) in implementations">
             <div class="field has-addons">
                 <div class="control">
-                    <type-picker class="m-sm" :type="implementation" :typeLists="allowedTypes" v-on:update:type="(newType) => updateImplementation(index, newType)">
+                    <type-picker class="m-sm" :type="implementation" :typeLists="allowedTypes" v-on:update:type="(newType) => updateImplementation(index, newType)" @model-state-changed="relayValidation">
                         <template slot="control-trigger">
                             <button class="component-button type-button button" aria-haspopup="true" aria-controls="dropdown-menu2">
                                 <span>{{implementation.name || "No Implementations Selected" | capitalize }}</span>
@@ -66,6 +66,9 @@
                 "System Conventions": filteredConventions
             };
         }
+
+        public relayValidation(isValid, modelErrors)
+        { this.$emit("model-state-changed", isValid, modelErrors); }
     }
 </script>
 

@@ -9,7 +9,7 @@
         <div v-for="(component, index) in components">
             <div class="field has-addons">
                 <div class="control">
-                    <type-picker class="m-sm" :type="component" :typeLists="allowedTypes" v-on:update:type="(newType) => updateComponent(index, newType)">
+                    <type-picker class="m-sm" :type="component" :typeLists="allowedTypes" v-on:update:type="(newType) => updateComponent(index, newType)" @model-state-changed="relayValidation">
                         <template slot="control-trigger">
                             <button class="component-button type-button button" aria-haspopup="true" aria-controls="dropdown-menu2">
                                 <span>{{component.name || "No Component Selected" | capitalize }}</span>
@@ -48,7 +48,7 @@
         @Prop()
         public title: string;
 
-        @Getter("componentTypes")
+        @Getter("ecsrx/componentTypes")
         public projectComponentTypes: Array<ITypeData>;
 
         public addComponent() {
@@ -69,6 +69,9 @@
                 "Components": filteredComponents
             };
         }
+
+        public relayValidation(isValid, modelErrors)
+        { this.$emit("model-state-changed", isValid, modelErrors); }
     }
 </script>
 

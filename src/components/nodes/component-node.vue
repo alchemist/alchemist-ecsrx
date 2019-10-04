@@ -9,7 +9,7 @@
             </div>
         </template>
         <template slot="content">
-            <reactive-properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes"></reactive-properties-section>
+            <reactive-properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes" @model-state-changed="refreshValidation"></reactive-properties-section>
         </template>
     </node-container>
 </template>

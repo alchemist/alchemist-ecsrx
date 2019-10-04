@@ -9,11 +9,11 @@
             </div>
         </template>
         <template slot="content">
-            <systems-section :implementations="node.data.implementsSystems"></systems-section>
-            <type-section title="Generic Type" :allowedTypes="allowedGenericTypes" :type.sync="node.data.genericDataType"></type-section>
-            <type-section title="Group Type" :allowedTypes="allowedGroupTypes" :type.sync="node.data.group"></type-section>
-            <properties-section :properties="node.data.dependencies" propertiesName="Dependencies" :typesToShow="allowedDependencyTypes"></properties-section>
-            <reactive-properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes"></reactive-properties-section>
+            <systems-section :implementations="node.data.implementsSystems" @model-state-changed="refreshValidation"></systems-section>
+            <type-section title="Generic Type" :allowedTypes="allowedGenericTypes" :type.sync="node.data.genericDataType" @model-state-changed="refreshValidation"></type-section>
+            <type-section title="Group Type" :allowedTypes="allowedGroupTypes" :type.sync="node.data.group" @model-state-changed="refreshValidation"></type-section>
+            <properties-section :properties="node.data.dependencies" propertiesName="Dependencies" :typesToShow="allowedDependencyTypes" @model-state-changed="refreshValidation"></properties-section>
+            <reactive-properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes" @model-state-changed="refreshValidation"></reactive-properties-section>
         </template>
     </node-container>
 </template>
@@ -46,13 +46,13 @@
         @Prop()
         public node: ReactiveSystemNode;
 
-        @Getter("modelTypes")
+        @Getter("ecsrx/modelTypes")
         public modelTypes: Array<ITypeData>;
 
-        @Getter("eventTypes")
+        @Getter("ecsrx/eventTypes")
         public eventTypes: Array<ITypeData>;
 
-        @Getter("groupTypes")
+        @Getter("ecsrx/groupTypes")
         public projectGroupTypes: Array<ITypeData>;
 
         public get allowedGroupTypes(): ITypesToShow {
@@ -87,6 +87,9 @@
                 "Events": this.eventTypes
             };
         }
+
+        public onStateChanged()
+        { this["refreshValidation"](); }
     }
 </script>
 

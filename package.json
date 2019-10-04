@@ -1,6 +1,6 @@
 {
   "name": "@alchemist/ecsrx",
-  "version": "0.3.2",
+  "version": "0.3.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/alchemist/alchemist-ecsrx",
@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "@alchemist/core": "^0.5.6",
-    "@alchemist/dotnet": "^0.4.7",
+    "@alchemist/dotnet": "^0.4.11",
     "@treacherous/core": "^0.17.7",
     "@treacherous/decorators": "^0.2.4",
     "@treacherous/vue": "^0.4.2",

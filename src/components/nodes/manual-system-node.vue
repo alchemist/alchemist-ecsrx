@@ -9,9 +9,9 @@
             </div>
         </template>
         <template slot="content">
-            <type-section title="Group Type" :allowedTypes="allowedGroupTypes" :type.sync="node.data.group"></type-section>
-            <properties-section :properties="node.data.dependencies" propertiesName="Dependencies" :typesToShow="allowedDependencyTypes"></properties-section>
-            <reactive-properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes"></reactive-properties-section>
+            <type-section title="Group Type" :allowedTypes="allowedGroupTypes" :type.sync="node.data.group" @model-state-changed="refreshValidation"></type-section>
+            <properties-section :properties="node.data.dependencies" propertiesName="Dependencies" :typesToShow="allowedDependencyTypes" @model-state-changed="refreshValidation"></properties-section>
+            <reactive-properties-section :properties="node.data.properties" :typesToShow="allowedPropertyTypes" @model-state-changed="refreshValidation"></reactive-properties-section>
         </template>
     </node-container>
 </template>
@@ -43,10 +43,10 @@
         @Prop()
         public node: ManualSystemNode;
 
-        @Getter("modelTypes")
+        @Getter("ecsrx/modelTypes")
         public modelTypes: Array<ITypeData>;
 
-        @Getter("groupTypes")
+        @Getter("ecsrx/groupTypes")
         public projectGroupTypes: Array<ITypeData>;
 
         public get allowedGroupTypes(): ITypesToShow {

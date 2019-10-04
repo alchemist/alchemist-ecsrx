@@ -9,8 +9,8 @@
             </div>
         </template>
         <template slot="content">
-            <components-section title="Required Components" :components="node.data.requiredComponents"></components-section>
-            <components-section title="Excluded Components" :components="node.data.excludedComponents"></components-section>
+            <components-section title="Required Components" :components="node.data.requiredComponents" @model-state-changed="refreshValidation"></components-section>
+            <components-section title="Excluded Components" :components="node.data.excludedComponents" @model-state-changed="refreshValidation"></components-section>
         </template>
     </node-container>
 </template>
