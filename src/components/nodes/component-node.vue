@@ -2,7 +2,7 @@
     <node-container :node="node" :position.sync="node.position">
         <template slot="header">
             <div class="component-name-container control has-icons-left has-icons-right">
-                <input class="input" type="text" placeholder="Component Name" v-model="node.data.name">
+                <input class="input" type="text" placeholder="Component Name" v-model="node.data.name" v-show-error validate-property="node.data.name">
                 <span class="icon is-left">
                     <i class="fas fa-edit"></i>
                 </span>
